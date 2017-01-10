@@ -134,22 +134,23 @@
         
 	<div id="comment">
 
-	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/book/index.html" data-title="movie" data-url="http://yoursite.com/book/index.html"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"LeoStones"};
-	  (function() {
-	    var ds = document.createElement('script');
-	    ds.type = 'text/javascript';ds.async = true;
-	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-	    ds.charset = 'UTF-8';
-	    (document.getElementsByTagName('head')[0]
-	     || document.getElementsByTagName('body')[0]).appendChild(ds);
-	  })();
-	  </script>
-	<!-- 多说公共JS代码 end -->
+<!-- 多说评论框 start -->
+	<div class="ds-thread"  data-thread-key="{{page.path}}"  data-title="{{page.title}}"  data-url="{{page.permalink}}" ></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"estrellahuang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
 
 	</div>
 	<link rel="stylesheet" href="/css/comment.css">
@@ -225,6 +226,9 @@
 
    		
    			<li><a href="http://weibo.com/u/5069483067?is_all=1" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+
+   		
+   			<li><a href="https://www.facebook.com/people/%E9%BB%84%E9%9B%A8%E6%AC%A3/100010000092861" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 
    		
    			<li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1971854556&amp;site=qq&amp;menu=yes" title="QQ"><i class="fa fa-qq" aria-hidden="true"></i></a></li>
