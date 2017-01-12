@@ -82,8 +82,8 @@ padding: 0 3px;
 
 #ds-thread #ds-reset .ds-post-button {background: #16171b;}
 #ds-thread #ds-reset .ds-post-button:hover {background: #ff2828;}
+<div class="ds-thread" data-thread-key="{{page.path}}"	data-title="{{page.title}}" data-url="{{page.permalink}}"></div>
 
-<div class="ds-share" data-thread-key="此处请替换为当前文章的thread-key" data-title="此处请替换为分享时显示的标题" data-images="此处请替换为分享时显示的图片的链接地址" data-content="此处请替换为分享时显示的内容" data-url="此处请替换为分享时显示的链接地址">
     <div class="ds-share-aside-left">
       <div class="ds-share-aside-inner">
       </div>
