@@ -16,7 +16,7 @@ Tags: black, white, red, two-columns, fixed-layout, threaded-comments, full-widt
 body {
 	color: #333;
 	font-weight: 400;
-	font-family: Arial, Helvetica, "Microsoft Yahei";
+	font-family: Arial, Helvetica, Microsoft Yahei;
 	line-height: 1.8;
 	background: #fff;
 	}
@@ -25,8 +25,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	margin: 1.25em 0 .5em;
 	color: #222;
-	font-weight: 700;
-	font-family: "Yanone Kaffeesatz", "Microsoft Yahei", Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-family: "Yanone Kaffeesatz", "Microsoft YaHei Light", Arial, Helvetica, sans-serif;
 	line-height: 1.2em;
 	}
 h1 {
@@ -58,15 +58,15 @@ h6 {
 /* Links */
 a {
 	outline: none;
-	-webkit-transition: all 0.14s ease 0s;
-	   -moz-transition: all 0.14s ease 0s;
-		 -o-transition: all 0.14s ease 0s;
+	-webkit-transition: all 0.14s ease 0s; 
+	   -moz-transition: all 0.14s ease 0s; 
+		 -o-transition: all 0.14s ease 0s; 
 	}
 
 a:hover,
 a:focus,
 a:active {
-	color: #000;
+	color: #333;
 	}
 
 /* Text Elements */
@@ -121,9 +121,7 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus,
 .uneditable-input:focus {
-	border-color: #d6d6d6;
 	outline: 0;
-	outline: thin dotted \9;
   /* IE6-9 */
 
 	-webkit-box-shadow: none;
@@ -139,7 +137,7 @@ input[type="submit"] {
 	color: #fff;
 	font-size: 1.2em;
 	font-weight: 400;
-	font-family: "Yanone Kaffeesatz", "华文细黑", Arial, Helvetica, sans-serif;
+	font-family: "Yanone Kaffeesatz", "方正姚体", Arial, Helvetica, sans-serif;
 	line-height: 30px;
 	text-transform: uppercase;
 	background: #060608;
@@ -255,7 +253,7 @@ object {
 /* HEADER
 ----------------------------------------------- */
 .site-header {
-	padding: 60px 0 0;
+	padding: 20px 0 0;
 	background: #16171b;
 	}
 .site-branding {
@@ -263,21 +261,20 @@ object {
 	}
 .site-title {
 	margin: 0;
-	font-size: 4.5em;
-	font-family: "Yanone Kaffeesatz","华文细黑", Arial, Helvetica, sans-serif;
+	font-size: 4.25em;
+	font-family: "Yanone Kaffeesatz", "Microsoft YaHei Light", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
-	line-height: 1.2;
+	line-height: 1;
 	}
 .site-title a {
 	color: #fff;
 	text-decoration: none;
 	}
 .site-description {
-	color: #fff;
-	margin-top: 1px;
-	font-family: "Yanone Kaffeesatz", "华文细黑", Arial, Helvetica, sans-serif;
+	color: #999;
+	font-family: "Yanone Kaffeesatz", "Microsoft YaHei Light", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
-	letter-spacing: 3px;
+	letter-spacing: 1px;
 	}
 
 /* MENU
@@ -334,16 +331,15 @@ object {
 	}
 #main-navigation .sf-menu {
 	background: #060608;
-	width: 618px;
 	}
 #main-navigation .sf-menu > ul > li:after {
 	width: 1px;
 	float: left;
-	margin: 0px 0 0;
-	content: "";
+	margin: 15px 0 0;
+	content: "|";
 	display: block;
 	color: #666;
-	font-size: 1.5em;
+	font-size: 1em;
 	font-family: Arial, Helvetica, sans-serif;
 	}
 #main-navigation .sf-menu > ul > li:last-child:after {
@@ -359,7 +355,7 @@ object {
 	margin: 0 -2px 0 0;
 	padding: 0 20px;
 	color: #fff;
-	font-size: 1.3em;
+	font-size: 1.2em;
 	font-weight: 400;
 	font-family: "Yanone Kaffeesatz", "方正姚体", Arial, Helvetica, sans-serif;
 	text-decoration: none;
@@ -380,7 +376,7 @@ object {
 	border-bottom: 1px solid #fd4848;
 	}
 #main-navigation li li a {
-	color: #fff;
+	color: #ffabab;
 	}
 #main-navigation li a:hover,
 #main-navigation li.sfHover > a,
@@ -397,7 +393,7 @@ object {
 #main-navigation li.sfHover li a {
 	margin: 0;
 	padding: 10px 20px;
-	font-size: 1.2em;
+	font-size: 1.1em;
 	text-transform: none;
 	line-height: normal;
 	}
@@ -413,7 +409,7 @@ object {
 	color: #eb2121;
 	font-size: 1.2em;
 	font-weight: 400;
-	font-family: Oswald, "华文细黑", Arial, Helvetica, sans-serif;
+	font-family: "Yanone Kaffeesatz", "方正姚体", Arial, Helvetica, sans-serif;
 	text-decoration: none;
 	text-transform: uppercase;
 	line-height: 50px;
@@ -447,10 +443,8 @@ object {
 		background: #333;
 		z-index: 1;
 		}
-		#main-navigation:target > .sf-menu > ul {
-		max-height: 900px;
-		max-width: 100%;
-		z-index: 901;
+	#main-navigation:target > .sf-menu > ul {
+		max-height: 400px;
 		}
 	.main-navigation-open > .sf-menu > ul {
 		max-height: 400px !important;
@@ -460,12 +454,6 @@ object {
 		display: block;
 		border-bottom: 1px dotted #565656;
 		}
-	#main-navigation > .sf-menu ul li:only-child {
-		border-top: 1px dotted #565656;
-		}
-	#main-navigation > .sf-menu ul li:last-child {
-		border-bottom: none;
-		}
 	#main-navigation > .sf-menu > ul > li:after {
 		display: none;
 		}
@@ -474,20 +462,6 @@ object {
 		display: block;
 		color: #fff;
 		}
-    #main-navigation li li:hover ul,
-    #main-navigation li li.sfHover ul {
-	    border-left: none;
-	    }
-	ul.sub-menu li {
-		float: none;
-		display: block;
-		z-index: 902;
-	    }
-    .sf-menu li ul {
-        top: -999em;
-        position: static;
-        z-index: 900;
-        }
 	}
 
 
@@ -553,18 +527,18 @@ object {
 	font-size: .9em;
 	}
 .entry-meta a {
-	color: #ff2828;
+	color: #999;
 	text-decoration: none;
 	}
 .entry-meta a:hover {
-	color: #000;
+	color: #222;
 	}
 .entry-meta .cat-links {
 	margin: 0 20px 0 0;
 	}
 .entry-meta [class^="ico-"]:before {
 	margin-right: 5px;
-	color: #ff2828;
+	color: #333;
 	}
 .comments-link {
 	float: right;
@@ -576,7 +550,7 @@ object {
 	color: #fff;
 	font-size: 1.4em;
 	font-weight: 400;
-	font-family: "Yanone Kaffeesatz", "华文细黑", Arial, Helvetica, sans-serif;
+	font-family: "Yanone Kaffeesatz", "方正姚体", Arial, Helvetica, sans-serif;
 	text-decoration: none;
 	line-height: 1;
 	background: #ff2828;
@@ -585,15 +559,12 @@ object {
 	float: left;
 	width: 250px;
 	height: auto;
-	margin: 0 20px 20px 0px;
-	border: 0px solid #fff;
+	margin: 0 20px 20px 0;
+	border: 5px solid #e6e6e6;
 	}
 .single-thumbnail {
 	margin-bottom: 20px;
 }
-.entry-thumbnail {
-	margin: 5px 0 20px;
-	}
 .entry-thumbnail img {
 	display: block;
 	}
@@ -601,17 +572,12 @@ object {
 	margin: 0 0 20px;
 	}
 .entry-summary {
-	margin: 0 0 20px 265px;
+	margin: 0 0 20px 260px;
 	}
 .entry-footer {
 	clear: both;
 	padding: 8px 0;
-	border: 0 solid #2A363B;
-	border-width: 0 0 3px;
-	}
-.entry-footer-hr {
-	margin: 1px 0 0 0 ;
-	border-top: 0px solid #2A363B;
+	border-top: 1px solid #e6e6e6;
 	}
 .more-link,
 .page-links {
@@ -644,28 +610,30 @@ body.search .page .entry-footer {
 
 /* Author Box */
 .author-info {
-	margin: 0 0 40px;
-	padding: 0 0 30px;
-	border-bottom: 1px solid #333;
+	margin: 0 0 30px;
+	padding: 15px 20px;
+	background: #f6f6f6;
+	border: 1px solid #e6e6e6;
 	}
 .author-info .author-photo {
 	float: left;
 	margin: 0 30px 0 0;
+	border: 5px solid #e6e6e6;
 	}
 .author-info .author-content {
-	margin: 0 0 0 105px;
+	margin: 0 0 0 115px;
 	}
 .author-info .author-content h3 {
 	margin: 0 0 10px;
-	font-size: 1.2em;
+	font-size: 1.4em;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	}
 .author-info .author-links a {
 	margin: 0 20px 0 0;
-	color: #a6a6a6;
+	color: #999;
 	font-size: .9em;
-	font-family: Oswald, "华文中宋", Arial, Helvetica, sans-serif;
+	font-family: "Yanone Kaffeesatz", "方正姚体", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
 	letter-spacing: 2px;
@@ -736,63 +704,23 @@ body.search .page .entry-footer {
 	}
 .site-content [class*="navigation"] a {
 	display: inline-block;
-	padding: 4px 15px;
+	padding: 5px 15px;
 	color: #fff;
-	font-size: 1.2em;
-	font-weight: 300;
-	font-family: Oswald, "华文细黑", Arial, Helvetica, sans-serif;
+	font-size: 1.3em;
+	font-weight: 400;
+	font-family: "Yanone Kaffeesatz", "方正姚体", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
 	line-height: 26px;
-	background: #333;
-	border: solid #666;
-	border-width: 0 0 3px;
+	background: #060608;
 	}
 .site-content [class*="navigation"] a:hover {
-	background: #666;
-	border-color: #333;
+	background: #ff2828;
 	}
-.site-content .post-navigation {
-	margin-top: -25px;
-	padding: 0 0 10px;
-	border-bottom: 1px solid #333;
+.site-content [class*="navigation"] [class^="ico-"]:before {
+	margin: 0;
 	}
-.site-content .post-navigation a {
-	padding: 0;
-	color: #333;
-	font-size: .9em;
-	font-weight: 400;
-	line-height: 20px;
-	background: none;
-	border: none;
-	}
-.site-content .post-navigation a:hover {
-	color: #1fa0ae;
-	background: none;
-	border: none;
-	}
-.site-content .post-navigation span {
-	display: block;
-	color: #a6a6a6;
-	font-size: 1.3em;
-	font-family: Oswald, "华文细黑", Arial, Helvetica, sans-serif;
-	text-transform: uppercase;
-	}
-.site-content .post-navigation .meta-nav {
-	display: none;
-	}
-.site-content .post-navigation .nav-next {
-	width: 35%;
-	margin-left: 5%;
-	padding-right: 10%;
-	text-align: left;
-	}
-.site-content .post-navigation .nav-previous {
-	width: 35%;
-	margin-right: 5%;
-	padding-left: 10%;
-	text-align: right;
-	}
+
 /* COMMENTS
 ----------------------------------------------- */
 .comment-list {
@@ -825,7 +753,7 @@ body.search .page .entry-footer {
 .comment-list li.comment .comment-author .fn {
 	color: #999;
 	font-size: 1.2em;
-	font-family: "Yanone Kaffeesatz", "华文细黑", Arial, Helvetica, sans-serif;
+	font-family: "Yanone Kaffeesatz", "方正姚体", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	}
 .comment-list li.comment .comment-author .fn a {
@@ -853,7 +781,7 @@ body.search .page .entry-footer {
 	color: #ff2828;
 	font-size: .9em;
 	font-weight: 300;
-	font-family: "Yanone Kaffeesatz", "华文细黑", Arial, Helvetica, sans-serif;
+	font-family: "Yanone Kaffeesatz", "方正姚体", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
 	letter-spacing: 1px;
@@ -873,7 +801,11 @@ body.search .page .entry-footer {
 
 /* Comment Form */
 #reply-title {
-	margin-top: 20px;
+	margin: 20px 0 15px;
+	padding: 0 0 15px;
+	font-size: 1.5em;
+	text-transform: uppercase;
+	border-bottom: 1px solid #d6d6d6;
 	}
 #cancel-comment-reply-link {
 	margin: 0 0 0 10px;
@@ -886,13 +818,13 @@ body.search .page .entry-footer {
 	padding: 0;
 	}
 #commentform label {
-	color: #a6a6a6;
-	font-family: Oswald, "华文细黑", Arial, Helvetica, sans-serif;
+	font-size: 1.2em;
+	font-family: "Yanone Kaffeesatz", "方正姚体", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	}
 #commentform textarea {
-	height: 125px;
+	height: 100px;
 	}
 
 /* WIDGETS
@@ -902,7 +834,7 @@ body.search .page .entry-footer {
 	}
 .widget-title {
 	margin: 0;
-	font-size: 1.8em;
+	font-size: 1.6em;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	margin: 0 0 -1px;
@@ -914,7 +846,7 @@ body.search .page .entry-footer {
 	margin: 0 0 -1px;
 	display: inline-block;
 	line-height: 40px;
-	border-bottom: 4px solid #ff2828;
+	border-bottom: 3px solid #ff2828;
 	}
 
 /* Make sure select elements fit in widgets */
@@ -929,16 +861,16 @@ body.search .page .entry-footer {
 	}
 .widget ul ul {
 	margin: 6px 0 -7px;
-	padding: 0 0 0 30px;
-	border-top: 0px solid #e6e6e6;
+	padding: 0 0 0 15px;
+	border-top: 1px solid #e6e6e6;
 	}
 .widget li {
-	padding: 5px 0;
-	border-bottom: 0px solid #999;
+	padding: 6px 0;
+	border-bottom: 1px solid #e6e6e6;
 	}
 
 .widget li a {
-	color: #000;
+	color: #333;
 	}
 .widget li a:hover {
 	color: #ff2828;
@@ -965,13 +897,13 @@ body.search .page .entry-footer {
 	}
 .widget_athemes_tabs .widget-tab-nav li a {
 	display: block;
-	padding: 5px 20px;
-	color: #fff;
-	font-size: 1.6em;
-	font-family: "Yanone Kaffeesatz", "华文细黑", Arial, Helvetica, sans-serif;
+	padding: 5px 15px;
+	color: #999;
+	font-size: 1.3em;
+	font-family: "Yanone Kaffeesatz", "方正姚体", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	line-height: 35px;
+	line-height: 30px;
 	background: #060608;
 	border: none;
 	border-radius: 0;
@@ -989,7 +921,7 @@ body.search .page .entry-footer {
 	margin: 0;
 	display: none;
 	background: #f6f6f6;
-	border: 2px solid #e6e6e6;
+	border: 1px solid #e6e6e6;
 	}
 .widget_athemes_tabs .widget-tab-content .active {
 	display: block;
@@ -1003,25 +935,27 @@ body.search .page .entry-footer {
 	}
 .widget_athemes_tabs .widget-entry-thumbnail {
 	float: left;
-	width: 79px;
-	height: 45px;
-	border: 0px solid #fff;
+	width: 56px;
+	height: 56px;
+	border: 3px solid #d6d6d6;
+	position: relative;
+    overflow: hidden;
 	}
 .widget_athemes_tabs .widget-entry-thumbnail img {
-	width: 70px;
-	height: 50px;
-	display: block;
-	max-width: 100%;
-    vertical-align: middle;
-    border: 0;
-    max-height: 100%;
+	width: auto;
+    height: 50px;
+    display: block;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
 	}
 .widget_athemes_tabs .widget-entry-summary {
-	margin: 7px 0 0 65px;
+	margin: 3px 0 0 65px;
 	}
 .widget_athemes_tabs .widget-entry-content span,
 .widget_athemes_tabs .widget-entry-summary span {
-	color: #666;
+	color: #999;
 	font-size: 1em;
 	}
 .widget_athemes_tabs .widget-entry-content h4,
@@ -1043,7 +977,7 @@ body.search .page .entry-footer {
 	line-height: 1.4;
 	}
 .widget_athemes_tabs #widget-tab-tags a {
-	color: #666;
+	color: #999;
 	text-decoration: none;
 	}
 .widget_athemes_tabs #widget-tab-tags a:hover {
@@ -1101,7 +1035,7 @@ body.search .page .entry-footer {
 	width: 55px;
 	display: block;
 	margin: 15px 6px 0 6px;
-	border: 0px solid #e5e5e5;
+	border: 5px solid #e5e5e5;
 	}
 .widget_athemes_flickr_stream .flickr_badge_image img {
 	display: block;
@@ -1203,9 +1137,9 @@ body.search .page .entry-footer {
 /* FOOTER
 ----------------------------------------------- */
 .site-footer {
-	padding: 30px 0;
-	color: #fff;
-	font-size: 1em;
+	padding: 18px 0;
+	color: #999;
+	font-size: .9em;
 	background: #16171b;
 	}
 .site-footer a {
@@ -1224,7 +1158,7 @@ body.search .page .entry-footer {
 
 /* RESPONSIVE SUPPORT
 ----------------------------------------------- */
-@media screen and (max-width: 100%) {
+@media screen and (max-width: 960px) {
 	.container {
 		width: 90%;
 		}
@@ -1243,7 +1177,7 @@ body.search .page .entry-footer {
 		width: 50%;
 		}
 	}
-@media screen and (max-width: 100%) {
+@media screen and (max-width: 758px) {
 	.site-header .widget-area {
 		display: none;
 		}

@@ -46,6 +46,20 @@
 
 </head>
 
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "Home"; 
+
+  themeMenus["/archives"] = "Archives"; 
+
+  themeMenus["/categories"] = "Categories"; 
+
+  themeMenus["/tags"] = "Tags"; 
+
+  themeMenus["/about"] = "About"; 
+
+</script>
 
 
   <body>
@@ -56,12 +70,15 @@
       <div class="site-branding">
 
           <h1 class="site-title">
-            <a href="http://estrellahuang.github.io/" title="Hiero" rel="home">
-              Welcome to my sweet world</a>
+            
+              <a href="/" title="Welcome to my sweet world" rel="home"> Welcome to my sweet world </a>
+            
           </h1>
-          <div class="site-description">Preparedness ensures success, unpreparedness spells failure.</div>
 
-
+          
+            <div class="site-description">Preparedness ensures success, unpreparedness spells failure.</div>
+          
+            
           <nav id="main-navigation" class="main-navigation" role="navigation">
             <a class="nav-open">Menu</a>
             <a class="nav-close">Close</a>
@@ -71,8 +88,10 @@
                     
                       <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
                     
-                                <ul class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/">TOEFL</a><ul class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-child"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/CONVERSATION/">CONVERSATION</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/LECTURE/">LECTURE</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/OLD-TOEFL/">OLD TOEFL</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/TPO14/">TPO14</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/TPO24/">TPO24</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/TPO29/">TPO29</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/TPO3/">TPO3</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/TPO30/">TPO30</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/TPO4/">TPO4</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/TPO5/">TPO5</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/error-prone-pronunciation/">error-prone pronunciation</a></li></ul></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/share/">share</a><ul class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-child"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/share/book/">book</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/share/delicacy/">delicacy</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/share/music/">music</a></li></ul></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/tech/">tech</a><ul class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-child"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/tech/linux/">linux</a></li></ul></li></ul>
-                            
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
+                    
                       <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
                     
                       <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
@@ -85,14 +104,6 @@
       </div>
   </div>
 </header>
-
-
-  <div style="background:#fff;width: 100%;">
-      <div style="max-height:700px; overflow: hidden;">
-        <img width="100%" alt="" src="">
-      </div>
-
-  </div>
 
 
 
@@ -124,6 +135,7 @@
 	  <time datetime="2017-04-18T16:00:00.000Z" itemprop="datePublished">April 19, 2017</time>
 	</a>
 
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -138,6 +150,192 @@
       
   <span class="ico-tags"></span>
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/music/">music</a></li></ul>
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-TOEFL/lectures about biology"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/24/TOEFL/lectures about biology/">lectures about biology</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2017/03/24/TOEFL/lectures about biology/" class="article-date">
+	  <time datetime="2017-03-23T16:00:00.000Z" itemprop="datePublished">March 24, 2017</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <div class="entry-thumbnail">
+            <a href="/2017/03/24/TOEFL/lectures about biology/"><img width="250" height="175" src="http://og0mzfnbv.bkt.clouddn.com/biology.jpg" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          TPO-07-L2.Bats’ Use of Ultrasoundultrasonic pulses 超声波脉冲；
+self-explanatory a 无须解释的，明白易晓的，一目了然的;
+on both counts 在两方面；
+count on 指望，期待，预料；
+bounce back 很快返回；
+diagram n 图表；
+draw on the echoes 画回声波形；
+mot...
+
+        
+          <p class="article-more-link">
+            <a href="/2017/03/24/TOEFL/lectures about biology/#more">Continue Reading →</a>
+          </p>
+        </div>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/TOEFL/">TOEFL</a>, <a class="article-category-link" href="/categories/TOEFL/LECTURE/">LECTURE</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TOEFL/">TOEFL</a></li></ul>
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-TOEFL/TPO 24-R3.Breathing During Sleep"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/24/TOEFL/TPO 24-R3.Breathing During Sleep/">TPO24 - Breathing During Sleep</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2017/03/24/TOEFL/TPO 24-R3.Breathing During Sleep/" class="article-date">
+	  <time datetime="2017-03-23T16:00:00.000Z" itemprop="datePublished">March 24, 2017</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+
+          
+            <div class="entry-summary" style="margin-left:0;">
+            physiological a  [.fɪziə’lɑdʒɪk(ə)l] 生理学上的；
+of all 在所有的…的当中；
+Of all the physiological differences in human sleep compared with wakefulness that have been discovered in the last decade, changes in respiratory control are most dramatic. 
+在所有近几十年发现的人类睡眠与醒着的生理差异中，在呼吸系统控制中的改变最明显；（of all 的句型中肯定有最高级）
+Of all the differences between the races of men, the...
+          
+
+        
+          <p class="article-more-link">
+            <a href="/2017/03/24/TOEFL/TPO 24-R3.Breathing During Sleep/#more">Continue Reading →</a>
+          </p>
+        </div>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/TOEFL/">TOEFL</a>, <a class="article-category-link" href="/categories/TOEFL/TPO24/">TPO24</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TOEFL/">TOEFL</a></li></ul>
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-TOEFL/lectures about economics"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/24/TOEFL/lectures about economics/">lectures about economic</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2017/03/24/TOEFL/lectures about economics/" class="article-date">
+	  <time datetime="2017-03-23T16:00:00.000Z" itemprop="datePublished">March 24, 2017</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <div class="entry-thumbnail">
+            <a href="/2017/03/24/TOEFL/lectures about economics/"><img width="250" height="175" src="http://og0mzfnbv.bkt.clouddn.com/economics.jpg" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          TPO-06-L1.Boom and Bustdot com  [.dɑt’kɑm] 网络公司；
+crash v 崩溃，撞击；
+eg: the dot com crash of 90s.
+网络公司在90年代崩溃了。
+spring up 跳上来，发生，萌芽，出现；
+boom and bust 繁荣和萧条，一时性繁荣；
+go out of business 改行，停产，停业，破产；
+hyster...
+
+        
+          <p class="article-more-link">
+            <a href="/2017/03/24/TOEFL/lectures about economics/#more">Continue Reading →</a>
+          </p>
+        </div>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/TOEFL/">TOEFL</a>, <a class="article-category-link" href="/categories/TOEFL/LECTURE/">LECTURE</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TOEFL/">TOEFL</a></li></ul>
 
       
     </footer>
@@ -168,6 +366,7 @@
 	  <time datetime="2017-03-23T16:00:00.000Z" itemprop="datePublished">March 24, 2017</time>
 	</a>
 
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -211,189 +410,6 @@ symphony n 交...
 <!-- Table of Contents -->
 
   
-    <article id="post-TOEFL/TPO 24-R3.Breathing During Sleep"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/24/TOEFL/TPO 24-R3.Breathing During Sleep/">TPO24 - Breathing During Sleep</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	Posted on <a href="/2017/03/24/TOEFL/TPO 24-R3.Breathing During Sleep/" class="article-date">
-	  <time datetime="2017-03-23T16:00:00.000Z" itemprop="datePublished">March 24, 2017</time>
-	</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-
-          
-            <div class="entry-summary" style="margin-left:0;">
-            physiological a  [.fɪziə’lɑdʒɪk(ə)l] 生理学上的；
-of all 在所有的…的当中；
-Of all the physiological differences in human sleep compared with wakefulness that have been discovered in the last decade, changes in respiratory control are most dramatic. 
-在所有近几十年发现的人类睡眠与醒着的生理差异中，在呼吸系统控制中的改变最明显；（of all 的句型中肯定有最高级）
-Of all the differences between the races of men, the...
-          
-
-        
-          <p class="article-more-link">
-            <a href="/2017/03/24/TOEFL/TPO 24-R3.Breathing During Sleep/#more">Continue Reading →</a>
-          </p>
-        </div>
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/TOEFL/">TOEFL</a>, <a class="article-category-link" href="/categories/TOEFL/TPO24/">TPO24</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TOEFL/">TOEFL</a></li></ul>
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-TOEFL/lectures about biology"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/24/TOEFL/lectures about biology/">lectures about biology</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	Posted on <a href="/2017/03/24/TOEFL/lectures about biology/" class="article-date">
-	  <time datetime="2017-03-23T16:00:00.000Z" itemprop="datePublished">March 24, 2017</time>
-	</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <div class="entry-thumbnail">
-            <a href="/2017/03/24/TOEFL/lectures about biology/"><img width="250" height="175" src="http://og0mzfnbv.bkt.clouddn.com/biology.jpg" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
-          </div>
-          <div class="entry-summary">
-          TPO-07-L2.Bats’ Use of Ultrasoundultrasonic pulses 超声波脉冲；
-self-explanatory a 无须解释的，明白易晓的，一目了然的;
-on both counts 在两方面；
-count on 指望，期待，预料；
-bounce back 很快返回；
-diagram n 图表；
-draw on the echoes 画回声波形；
-mot...
-
-        
-          <p class="article-more-link">
-            <a href="/2017/03/24/TOEFL/lectures about biology/#more">Continue Reading →</a>
-          </p>
-        </div>
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/TOEFL/">TOEFL</a>, <a class="article-category-link" href="/categories/TOEFL/LECTURE/">LECTURE</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TOEFL/">TOEFL</a></li></ul>
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-TOEFL/lectures about economics"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/24/TOEFL/lectures about economics/">lectures about economic</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	Posted on <a href="/2017/03/24/TOEFL/lectures about economics/" class="article-date">
-	  <time datetime="2017-03-23T16:00:00.000Z" itemprop="datePublished">March 24, 2017</time>
-	</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <div class="entry-thumbnail">
-            <a href="/2017/03/24/TOEFL/lectures about economics/"><img width="250" height="175" src="http://og0mzfnbv.bkt.clouddn.com/economics.jpg" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
-          </div>
-          <div class="entry-summary">
-          TPO-06-L1.Boom and Bustdot com  [.dɑt’kɑm] 网络公司；
-crash v 崩溃，撞击；
-eg: the dot com crash of 90s.
-网络公司在90年代崩溃了。
-spring up 跳上来，发生，萌芽，出现；
-boom and bust 繁荣和萧条，一时性繁荣；
-go out of business 改行，停产，停业，破产；
-hyster...
-
-        
-          <p class="article-more-link">
-            <a href="/2017/03/24/TOEFL/lectures about economics/#more">Continue Reading →</a>
-          </p>
-        </div>
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/TOEFL/">TOEFL</a>, <a class="article-category-link" href="/categories/TOEFL/LECTURE/">LECTURE</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TOEFL/">TOEFL</a></li></ul>
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-TOEFL/conversations about campus situation"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -414,6 +430,7 @@ hyster...
 	  <time datetime="2017-03-23T16:00:00.000Z" itemprop="datePublished">March 24, 2017</time>
 	</a>
 
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -473,6 +490,7 @@ familiarize myse...
 	  <time datetime="2017-03-07T10:49:28.352Z" itemprop="datePublished">March 7, 2017</time>
 	</a>
 
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -529,6 +547,7 @@ be made with carefully selected and purified clay 用精选和提纯的黏土；
 	  <time datetime="2017-03-07T10:31:23.380Z" itemprop="datePublished">March 7, 2017</time>
 	</a>
 
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -584,6 +603,7 @@ be made with carefully selected and purified clay 用精选和提纯的黏土；
 	  <time datetime="2017-02-16T16:00:00.000Z" itemprop="datePublished">February 17, 2017</time>
 	</a>
 
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -631,7 +651,7 @@ be made deep inside a dark cave  在一...
 <!-- Table of Contents -->
 
   
-    <article id="post-TOEFL/pronunciation"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-TOEFL/TPO5-L2.Meme"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -639,7 +659,7 @@ be made deep inside a dark cave  在一...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/17/TOEFL/pronunciation/">error-prone pronunciation</a>
+      <a class="article-title" href="/2017/02/17/TOEFL/TPO5-L2.Meme/">TPO5-L1.Meme</a>
     </h1>
   
 
@@ -647,29 +667,30 @@ be made deep inside a dark cave  在一...
     
     <div class="article-meta">
       
-	Posted on <a href="/2017/02/17/TOEFL/pronunciation/" class="article-date">
+	Posted on <a href="/2017/02/17/TOEFL/TPO5-L2.Meme/" class="article-date">
 	  <time datetime="2017-02-16T16:00:00.000Z" itemprop="datePublished">February 17, 2017</time>
 	</a>
 
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         
           <div class="entry-thumbnail">
-            <a href="/2017/02/17/TOEFL/pronunciation/"><img width="250" height="175" src="http://og0mzfnbv.bkt.clouddn.com/pronunciation.jpg" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+            <a href="/2017/02/17/TOEFL/TPO5-L2.Meme/"><img width="250" height="175" src="http://og0mzfnbv.bkt.clouddn.com/twinkle%20star.jpg" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
           </div>
           <div class="entry-summary">
-          Estrella’s error-prone pronunciation endemic a/n  [en’demɪk]
-horizon n [hə’raɪz(ə)n]
-volcano n [vɒlˈkeɪnəʊ]
-range n [reɪndʒ]
-sediment n [‘sedəmənt]
-elevation n  [.elə’veɪʃ(ə)n]
-geothermy n [dʒioʊ’θ...
+          Words and Phrases sewer  [ˈsuər] 下水道；
+strike fear into sb 使…感到害怕；
+pet [pet] 宠物，宝贝，红人；
+strike  [straɪk]  罢工，攻击，打；(用炫迈口香糖来记住这个读音)
+find their way into 出现在…
+eg: Rivers find their way into the sea.
+have...
 
         
           <p class="article-more-link">
-            <a href="/2017/02/17/TOEFL/pronunciation/#more">Continue Reading →</a>
+            <a href="/2017/02/17/TOEFL/TPO5-L2.Meme/#more">Continue Reading →</a>
           </p>
         </div>
       
@@ -677,7 +698,7 @@ geothermy n [dʒioʊ’θ...
     <footer class="entry-meta entry-footer">
       
 	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/TOEFL/">TOEFL</a>, <a class="article-category-link" href="/categories/TOEFL/error-prone-pronunciation/">error-prone pronunciation</a>
+    <a class="article-category-link" href="/categories/TOEFL/">TOEFL</a>, <a class="article-category-link" href="/categories/TOEFL/TPO5/">TPO5</a>
 
       
   <span class="ico-tags"></span>
@@ -752,29 +773,41 @@ geothermy n [dʒioʊ’θ...
 
     	<ul class="clearfix widget-social-icons">   
     	
-   			<li><a href="https://github.com/estrellahuang" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="https://github.com/iTimeTraveler" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
+          
    		
-   			<li><a href="http://weibo.com/u/5069483067?is_all=1" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="http://www.yoursite.com" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li> 
+          
    		
-   			<li><a href="https://www.facebook.com/people/%E9%BB%84%E9%9B%A8%E6%AC%A3/100010000092861" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="null" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> 
+          
    		
-   			<li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1971854556&amp;site=qq&amp;menu=yes" title="QQ"><i class="fa fa-qq" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="null" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> 
+          
    		
-   			<li><a href="null" title="Google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="null" title="Google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> 
+          
    		
-   			<li><a href="null" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="null" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li> 
+          
    		
-   			<li><a href="null" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="null" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li> 
+          
    		
-   			<li><a href="null" title="Flickr"><i class="fa fa-flickr" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="null" title="Flickr"><i class="fa fa-flickr" aria-hidden="true"></i></a></li> 
+          
+   		
+          
+            <li><a href="mailto:null?subject=请联系我&body=我能帮你什么" title="email"><i class="fa fa-envelope" aria-hidden="true"></i></a></li> 
+          
    		
    		</ul>
 
@@ -818,12 +851,12 @@ geothermy n [dʒioʊ’θ...
 
             
               <div class="widget-entry-thumbnail">
-                <a href="/2017/03/24/TOEFL/lectures about architecture/" title=""><img width="50" height="50" src="http://og0mzfnbv.bkt.clouddn.com/architecture.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+                <a href="/2017/03/24/TOEFL/lectures about biology/" title=""><img width="50" height="50" src="http://og0mzfnbv.bkt.clouddn.com/biology.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
               </div>
               <div class="widget-entry-summary">
             
 
-              <h6 style="margin: 0;"><a href="/2017/03/24/TOEFL/lectures about architecture/">lectures about architecture</a></h6>
+              <h6 style="margin: 0;"><a href="/2017/03/24/TOEFL/lectures about biology/">lectures about biology</a></h6>
               <span>March 24, 2017</span>
             </div>
 
@@ -845,12 +878,12 @@ geothermy n [dʒioʊ’θ...
 
             
               <div class="widget-entry-thumbnail">
-                <a href="/2017/03/24/TOEFL/lectures about biology/" title=""><img width="50" height="50" src="http://og0mzfnbv.bkt.clouddn.com/biology.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+                <a href="/2017/03/24/TOEFL/lectures about economics/" title=""><img width="50" height="50" src="http://og0mzfnbv.bkt.clouddn.com/economics.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
               </div>
               <div class="widget-entry-summary">
             
 
-              <h6 style="margin: 0;"><a href="/2017/03/24/TOEFL/lectures about biology/">lectures about biology</a></h6>
+              <h6 style="margin: 0;"><a href="/2017/03/24/TOEFL/lectures about economics/">lectures about economic</a></h6>
               <span>March 24, 2017</span>
             </div>
 
@@ -860,12 +893,12 @@ geothermy n [dʒioʊ’θ...
 
             
               <div class="widget-entry-thumbnail">
-                <a href="/2017/03/24/TOEFL/lectures about economics/" title=""><img width="50" height="50" src="http://og0mzfnbv.bkt.clouddn.com/economics.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+                <a href="/2017/03/24/TOEFL/lectures about architecture/" title=""><img width="50" height="50" src="http://og0mzfnbv.bkt.clouddn.com/architecture.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
               </div>
               <div class="widget-entry-summary">
             
 
-              <h6 style="margin: 0;"><a href="/2017/03/24/TOEFL/lectures about economics/">lectures about economic</a></h6>
+              <h6 style="margin: 0;"><a href="/2017/03/24/TOEFL/lectures about architecture/">lectures about architecture</a></h6>
               <span>March 24, 2017</span>
             </div>
 
@@ -903,6 +936,16 @@ geothermy n [dʒioʊ’θ...
   
     
   <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/LEAN-IN/">LEAN IN</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OLD-TOEFL/">OLD TOEFL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TOEFL/">TOEFL</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delicacy/">delicacy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/">music</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/茶点/">茶点</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/鸟哥的linux私房菜/">鸟哥的linux私房菜</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/LEAN-IN/" style="font-size: 12.5px;">LEAN IN</a> <a href="/tags/OLD-TOEFL/" style="font-size: 12.5px;">OLD TOEFL</a> <a href="/tags/TOEFL/" style="font-size: 20px;">TOEFL</a> <a href="/tags/book/" style="font-size: 15px;">book</a> <a href="/tags/delicacy/" style="font-size: 10px;">delicacy</a> <a href="/tags/music/" style="font-size: 17.5px;">music</a> <a href="/tags/茶点/" style="font-size: 10px;">茶点</a> <a href="/tags/鸟哥的linux私房菜/" style="font-size: 10px;">鸟哥的linux私房菜</a>
@@ -929,10 +972,16 @@ geothermy n [dʒioʊ’θ...
 
   <div class="clearfix container">
       <div class="site-info">
-	      &copy; 2017 Welcome to my sweet world ESTRELLA HUANG.
+	      &copy; 2017 Welcome to my sweet world All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
       </div>
       <div class="site-credit">
-        | DREAM IT POSSIBLE | LEAN IN |
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
       </div>
   </div>
 </footer>
@@ -941,17 +990,16 @@ geothermy n [dʒioʊ’θ...
 <!-- min height -->
 
 <script>
-    var wrapdiv = document.getElementById("wrap");
     var contentdiv = document.getElementById("content");
 
-    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
     contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
 </script>
-
     </div>
     <!-- <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
     <a href="/categories" class="mobile-nav-link">Categories</a>
   
@@ -961,9 +1009,6 @@ geothermy n [dʒioʊ’θ...
   
 </nav> -->
     
-<div style="display: none;">
-  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
-</div>
 
 <!-- mathjax config similar to math.stackexchange -->
 
@@ -1009,16 +1054,25 @@ geothermy n [dʒioʊ’θ...
 
 
 
-  </div>
 
-  <a id="rocket" href="#top" class=""></a>
-  <script type="text/javascript" src="/js/totop.js" async=""></script>
-  
 
   <div style="display: none;">
     <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
   </div>
 
 
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
 </body>
 </html>

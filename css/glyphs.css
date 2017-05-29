@@ -19,7 +19,7 @@
 		}
 	}
 */
-
+ 
  [class^="ico-"]:before, [class*=" ico-"]:before,
  [class^="fa-"]:before, [class*=" fa-"]:before {
 	font-family: "athemes-glyphs";
@@ -27,32 +27,32 @@
 	font-style: normal;
 	font-weight: normal;
 	speak: none;
-
+ 
 	display: inline-block;
 	text-decoration: inherit;
 	width: 1em;
 	margin-right: .2em;
 	text-align: center;
 	/* opacity: .8; */
-
+ 
 	/* For safety - reset parent styles, that can break glyph codes*/
 	font-variant: normal;
 	text-transform: none;
-
+		 
 	/* fix buttons height, for twitter bootstrap */
 	line-height: 1em;
-
+ 
 	/* Animation center compensation - margins should be symmetric */
 	/* remove if not needed */
 	margin-left: 0em;
-
+ 
 	/* you can be more comfortable with increased icons size */
 	/* font-size: 120%; */
-
+ 
 	/* Uncomment for 3D effect */
 	/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 	}
-
+ 
 .ico-youtube:before { content: '\e810'; } /* '' */
 .ico-chat:before { content: '\e813'; } /* '' */
 .ico-left-open:before { content: '\e812'; } /* '' */
@@ -61,7 +61,7 @@
 .ico-vimeo:before { content: '\e803'; } /* '' */
 .ico-twitter:before { content: '\e804'; } /* '' */
 .ico-facebook:before { content: '\e805'; } /* '' */
-.ico-gplus:before { content: '\f111'; } /* '' */
+.ico-gplus:before { content: '\e806'; } /* '' */
 .ico-pinterest:before { content: '\e807'; } /* '' */
 .ico-tumblr:before { content: '\e808'; } /* '' */
 .ico-linkedin:before { content: '\e809'; } /* '' */

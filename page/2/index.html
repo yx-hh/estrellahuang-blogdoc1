@@ -46,6 +46,20 @@
 
 </head>
 
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "Home"; 
+
+  themeMenus["/archives"] = "Archives"; 
+
+  themeMenus["/categories"] = "Categories"; 
+
+  themeMenus["/tags"] = "Tags"; 
+
+  themeMenus["/about"] = "About"; 
+
+</script>
 
 
   <body>
@@ -56,12 +70,15 @@
       <div class="site-branding">
 
           <h1 class="site-title">
-            <a href="http://estrellahuang.github.io/" title="Hiero" rel="home">
-              Welcome to my sweet world</a>
+            
+              <a href="/" title="Welcome to my sweet world" rel="home"> Welcome to my sweet world </a>
+            
           </h1>
-          <div class="site-description">Preparedness ensures success, unpreparedness spells failure.</div>
 
-
+          
+            <div class="site-description">Preparedness ensures success, unpreparedness spells failure.</div>
+          
+            
           <nav id="main-navigation" class="main-navigation" role="navigation">
             <a class="nav-open">Menu</a>
             <a class="nav-close">Close</a>
@@ -71,8 +88,10 @@
                     
                       <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
                     
-                                <ul class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/">TOEFL</a><ul class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-child"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/CONVERSATION/">CONVERSATION</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/LECTURE/">LECTURE</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/OLD-TOEFL/">OLD TOEFL</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/TPO14/">TPO14</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/TPO24/">TPO24</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/TPO29/">TPO29</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/TPO3/">TPO3</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/TPO30/">TPO30</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/TPO4/">TPO4</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/TPO5/">TPO5</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/TOEFL/error-prone-pronunciation/">error-prone pronunciation</a></li></ul></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/share/">share</a><ul class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-child"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/share/book/">book</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/share/delicacy/">delicacy</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/share/music/">music</a></li></ul></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/tech/">tech</a><ul class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-child"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-item"><a class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663-list-link" href="/categories/tech/linux/">linux</a></li></ul></li></ul>
-                            
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
+                    
                       <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
                     
                       <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
@@ -87,14 +106,6 @@
 </header>
 
 
-  <div style="background:#fff;width: 100%;">
-      <div style="max-height:700px; overflow: hidden;">
-        <img width="100%" alt="" src="">
-      </div>
-
-  </div>
-
-
 
 
   <div id="container">
@@ -104,7 +115,7 @@
         
           <section id="main">
   
-    <article id="post-TOEFL/TPO5-L2.Meme"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-TOEFL/pronunciation"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -112,7 +123,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/17/TOEFL/TPO5-L2.Meme/">TPO5-L1.Meme</a>
+      <a class="article-title" href="/2017/02/17/TOEFL/pronunciation/">error-prone pronunciation</a>
     </h1>
   
 
@@ -120,29 +131,30 @@
     
     <div class="article-meta">
       
-	Posted on <a href="/2017/02/17/TOEFL/TPO5-L2.Meme/" class="article-date">
+	Posted on <a href="/2017/02/17/TOEFL/pronunciation/" class="article-date">
 	  <time datetime="2017-02-16T16:00:00.000Z" itemprop="datePublished">February 17, 2017</time>
 	</a>
 
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         
           <div class="entry-thumbnail">
-            <a href="/2017/02/17/TOEFL/TPO5-L2.Meme/"><img width="250" height="175" src="http://og0mzfnbv.bkt.clouddn.com/twinkle%20star.jpg" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+            <a href="/2017/02/17/TOEFL/pronunciation/"><img width="250" height="175" src="http://og0mzfnbv.bkt.clouddn.com/pronunciation.jpg" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
           </div>
           <div class="entry-summary">
-          Words and Phrases sewer  [ˈsuər] 下水道；
-strike fear into sb 使…感到害怕；
-pet [pet] 宠物，宝贝，红人；
-strike  [straɪk]  罢工，攻击，打；(用炫迈口香糖来记住这个读音)
-find their way into 出现在…
-eg: Rivers find their way into the sea.
-have...
+          Estrella’s error-prone pronunciation endemic a/n  [en’demɪk]
+horizon n [hə’raɪz(ə)n]
+volcano n [vɒlˈkeɪnəʊ]
+range n [reɪndʒ]
+sediment n [‘sedəmənt]
+elevation n  [.elə’veɪʃ(ə)n]
+geothermy n [dʒioʊ’θ...
 
         
           <p class="article-more-link">
-            <a href="/2017/02/17/TOEFL/TPO5-L2.Meme/#more">Continue Reading →</a>
+            <a href="/2017/02/17/TOEFL/pronunciation/#more">Continue Reading →</a>
           </p>
         </div>
       
@@ -150,7 +162,66 @@ have...
     <footer class="entry-meta entry-footer">
       
 	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/TOEFL/">TOEFL</a>, <a class="article-category-link" href="/categories/TOEFL/TPO5/">TPO5</a>
+    <a class="article-category-link" href="/categories/TOEFL/">TOEFL</a>, <a class="article-category-link" href="/categories/TOEFL/error-prone-pronunciation/">error-prone pronunciation</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TOEFL/">TOEFL</a></li></ul>
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-TOEFL/TPO29-R2.Competition"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/16/TOEFL/TPO29-R2.Competition/">TPO29-R2.Competition</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2017/02/16/TOEFL/TPO29-R2.Competition/" class="article-date">
+	  <time datetime="2017-02-15T16:00:00.000Z" itemprop="datePublished">February 16, 2017</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <div class="entry-thumbnail">
+            <a href="/2017/02/16/TOEFL/TPO29-R2.Competition/"><img width="250" height="175" src="http://og0mzfnbv.bkt.clouddn.com/competition.jpg" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          Analysis for errorQ8 Paragraph 3 supports the idea that Gause’s experiments were important because they
+
+A
+provided a situation in which competition could be removed from the interaction between tw...
+
+        
+          <p class="article-more-link">
+            <a href="/2017/02/16/TOEFL/TPO29-R2.Competition/#more">Continue Reading →</a>
+          </p>
+        </div>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/TOEFL/">TOEFL</a>, <a class="article-category-link" href="/categories/TOEFL/TPO29/">TPO29</a>
 
       
   <span class="ico-tags"></span>
@@ -185,6 +256,7 @@ have...
 	  <time datetime="2017-02-15T16:00:00.000Z" itemprop="datePublished">February 16, 2017</time>
 	</a>
 
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -227,64 +299,6 @@ Sentencepretty much everyone else 差不多每个人；get 明白；...
 <!-- Table of Contents -->
 
   
-    <article id="post-TOEFL/TPO29-R2.Competition"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/16/TOEFL/TPO29-R2.Competition/">TPO29-R2.Competition</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	Posted on <a href="/2017/02/16/TOEFL/TPO29-R2.Competition/" class="article-date">
-	  <time datetime="2017-02-15T16:00:00.000Z" itemprop="datePublished">February 16, 2017</time>
-	</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <div class="entry-thumbnail">
-            <a href="/2017/02/16/TOEFL/TPO29-R2.Competition/"><img width="250" height="175" src="http://og0mzfnbv.bkt.clouddn.com/competition.jpg" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
-          </div>
-          <div class="entry-summary">
-          Analysis for errorQ8 Paragraph 3 supports the idea that Gause’s experiments were important because they
-
-A
-provided a situation in which competition could be removed from the interaction between tw...
-
-        
-          <p class="article-more-link">
-            <a href="/2017/02/16/TOEFL/TPO29-R2.Competition/#more">Continue Reading →</a>
-          </p>
-        </div>
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/TOEFL/">TOEFL</a>, <a class="article-category-link" href="/categories/TOEFL/TPO29/">TPO29</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TOEFL/">TOEFL</a></li></ul>
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-TOEFL/TPO5-C1.Adjustment to life at university"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -305,6 +319,7 @@ provided a situation in which competition could be removed from the interaction 
 	  <time datetime="2017-02-14T16:00:00.000Z" itemprop="datePublished">February 15, 2017</time>
 	</a>
 
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -350,51 +365,6 @@ council [‘kaʊns(ə)l]...
 <!-- Table of Contents -->
 
   
-    <article id="post-share/music/everglow"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/14/share/music/everglow/">everglow</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	Posted on <a href="/2017/02/14/share/music/everglow/" class="article-date">
-	  <time datetime="2017-02-13T16:00:00.000Z" itemprop="datePublished">February 14, 2017</time>
-	</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <iframe src="https://music.daoapp.io/iframe?song=37239018&qssl=1&qlrc=1&autoplay=0" width="100%" frameborder="0" scrolling="no"></iframe>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/share/">share</a>, <a class="article-category-link" href="/categories/share/music/">music</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/music/">music</a></li></ul>
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-TOEFL/TPO5-L4.Folk Tales and Fairy Tales"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -415,6 +385,7 @@ council [‘kaʊns(ə)l]...
 	  <time datetime="2017-02-13T16:00:00.000Z" itemprop="datePublished">February 14, 2017</time>
 	</a>
 
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -455,6 +426,52 @@ communal  [kə’mjun(ə)l] a 共享的，不同群体...
 <!-- Table of Contents -->
 
   
+    <article id="post-share/music/everglow"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/14/share/music/everglow/">everglow</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2017/02/14/share/music/everglow/" class="article-date">
+	  <time datetime="2017-02-13T16:00:00.000Z" itemprop="datePublished">February 14, 2017</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <iframe src="https://music.daoapp.io/iframe?song=37239018&qssl=1&qlrc=1&autoplay=0" width="100%" frameborder="0" scrolling="no"></iframe>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/share/">share</a>, <a class="article-category-link" href="/categories/share/music/">music</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/music/">music</a></li></ul>
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-TOEFL/TPO4-L2"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -475,6 +492,7 @@ communal  [kə’mjun(ə)l] a 共享的，不同群体...
 	  <time datetime="2017-02-13T10:11:08.379Z" itemprop="datePublished">February 13, 2017</time>
 	</a>
 
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -535,6 +553,7 @@ Truth is found within ourselves 真理存...
 	  <time datetime="2017-02-11T16:00:00.000Z" itemprop="datePublished">February 12, 2017</time>
 	</a>
 
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -594,6 +613,7 @@ rural  [‘rʊrəl]  area 乡村地区；you na...
 	  <time datetime="2017-02-10T16:00:00.000Z" itemprop="datePublished">February 11, 2017</time>
 	</a>
 
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -655,6 +675,7 @@ desert [ˈdezə...
 	  <time datetime="2017-02-09T16:00:00.000Z" itemprop="datePublished">February 10, 2017</time>
 	</a>
 
+      
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -755,29 +776,41 @@ retu...
 
     	<ul class="clearfix widget-social-icons">   
     	
-   			<li><a href="https://github.com/estrellahuang" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="https://github.com/iTimeTraveler" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
+          
    		
-   			<li><a href="http://weibo.com/u/5069483067?is_all=1" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="http://www.yoursite.com" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li> 
+          
    		
-   			<li><a href="https://www.facebook.com/people/%E9%BB%84%E9%9B%A8%E6%AC%A3/100010000092861" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="null" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> 
+          
    		
-   			<li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1971854556&amp;site=qq&amp;menu=yes" title="QQ"><i class="fa fa-qq" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="null" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> 
+          
    		
-   			<li><a href="null" title="Google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="null" title="Google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> 
+          
    		
-   			<li><a href="null" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="null" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li> 
+          
    		
-   			<li><a href="null" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="null" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li> 
+          
    		
-   			<li><a href="null" title="Flickr"><i class="fa fa-flickr" aria-hidden="true"></i></a></li> 
-
+          
+     			  <li><a href="null" title="Flickr"><i class="fa fa-flickr" aria-hidden="true"></i></a></li> 
+          
+   		
+          
+            <li><a href="mailto:null?subject=请联系我&body=我能帮你什么" title="email"><i class="fa fa-envelope" aria-hidden="true"></i></a></li> 
+          
    		
    		</ul>
 
@@ -821,12 +854,12 @@ retu...
 
             
               <div class="widget-entry-thumbnail">
-                <a href="/2017/03/24/TOEFL/lectures about architecture/" title=""><img width="50" height="50" src="http://og0mzfnbv.bkt.clouddn.com/architecture.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+                <a href="/2017/03/24/TOEFL/lectures about biology/" title=""><img width="50" height="50" src="http://og0mzfnbv.bkt.clouddn.com/biology.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
               </div>
               <div class="widget-entry-summary">
             
 
-              <h6 style="margin: 0;"><a href="/2017/03/24/TOEFL/lectures about architecture/">lectures about architecture</a></h6>
+              <h6 style="margin: 0;"><a href="/2017/03/24/TOEFL/lectures about biology/">lectures about biology</a></h6>
               <span>March 24, 2017</span>
             </div>
 
@@ -848,12 +881,12 @@ retu...
 
             
               <div class="widget-entry-thumbnail">
-                <a href="/2017/03/24/TOEFL/lectures about biology/" title=""><img width="50" height="50" src="http://og0mzfnbv.bkt.clouddn.com/biology.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+                <a href="/2017/03/24/TOEFL/lectures about economics/" title=""><img width="50" height="50" src="http://og0mzfnbv.bkt.clouddn.com/economics.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
               </div>
               <div class="widget-entry-summary">
             
 
-              <h6 style="margin: 0;"><a href="/2017/03/24/TOEFL/lectures about biology/">lectures about biology</a></h6>
+              <h6 style="margin: 0;"><a href="/2017/03/24/TOEFL/lectures about economics/">lectures about economic</a></h6>
               <span>March 24, 2017</span>
             </div>
 
@@ -863,12 +896,12 @@ retu...
 
             
               <div class="widget-entry-thumbnail">
-                <a href="/2017/03/24/TOEFL/lectures about economics/" title=""><img width="50" height="50" src="http://og0mzfnbv.bkt.clouddn.com/economics.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+                <a href="/2017/03/24/TOEFL/lectures about architecture/" title=""><img width="50" height="50" src="http://og0mzfnbv.bkt.clouddn.com/architecture.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
               </div>
               <div class="widget-entry-summary">
             
 
-              <h6 style="margin: 0;"><a href="/2017/03/24/TOEFL/lectures about economics/">lectures about economic</a></h6>
+              <h6 style="margin: 0;"><a href="/2017/03/24/TOEFL/lectures about architecture/">lectures about architecture</a></h6>
               <span>March 24, 2017</span>
             </div>
 
@@ -906,6 +939,16 @@ retu...
   
     
   <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/LEAN-IN/">LEAN IN</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OLD-TOEFL/">OLD TOEFL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TOEFL/">TOEFL</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delicacy/">delicacy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/">music</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/茶点/">茶点</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/鸟哥的linux私房菜/">鸟哥的linux私房菜</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/LEAN-IN/" style="font-size: 12.5px;">LEAN IN</a> <a href="/tags/OLD-TOEFL/" style="font-size: 12.5px;">OLD TOEFL</a> <a href="/tags/TOEFL/" style="font-size: 20px;">TOEFL</a> <a href="/tags/book/" style="font-size: 15px;">book</a> <a href="/tags/delicacy/" style="font-size: 10px;">delicacy</a> <a href="/tags/music/" style="font-size: 17.5px;">music</a> <a href="/tags/茶点/" style="font-size: 10px;">茶点</a> <a href="/tags/鸟哥的linux私房菜/" style="font-size: 10px;">鸟哥的linux私房菜</a>
@@ -932,10 +975,16 @@ retu...
 
   <div class="clearfix container">
       <div class="site-info">
-	      &copy; 2017 Welcome to my sweet world ESTRELLA HUANG.
+	      &copy; 2017 Welcome to my sweet world All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
       </div>
       <div class="site-credit">
-        | DREAM IT POSSIBLE | LEAN IN |
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
       </div>
   </div>
 </footer>
@@ -944,17 +993,16 @@ retu...
 <!-- min height -->
 
 <script>
-    var wrapdiv = document.getElementById("wrap");
     var contentdiv = document.getElementById("content");
 
-    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
     contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
 </script>
-
     </div>
     <!-- <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
     <a href="/categories" class="mobile-nav-link">Categories</a>
   
@@ -964,9 +1012,6 @@ retu...
   
 </nav> -->
     
-<div style="display: none;">
-  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
-</div>
 
 <!-- mathjax config similar to math.stackexchange -->
 
@@ -1012,16 +1057,25 @@ retu...
 
 
 
-  </div>
 
-  <a id="rocket" href="#top" class=""></a>
-  <script type="text/javascript" src="/js/totop.js" async=""></script>
-  
 
   <div style="display: none;">
     <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
   </div>
 
 
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
 </body>
 </html>
