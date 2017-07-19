@@ -62,6 +62,8 @@ var themeMenus = {};
 
   themeMenus["/tags"] = "Tags"; 
 
+  themeMenus["/about"] = "About"; 
+
 </script>
 
 
@@ -97,6 +99,8 @@ var themeMenus = {};
                     
                       <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
                     
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
               </ul>
             </div>
           </nav>
@@ -106,6 +110,24 @@ var themeMenus = {};
   </div>
 </header>
 
+
+  <div style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+      var imgUrls = "css/images/pose.jpg,https://images.unsplash.com/photo-1464306208223-e0b4495a5553?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  </script>
 
 
 
@@ -120,7 +142,7 @@ var themeMenus = {};
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" href="http://og0mzfnbv.bkt.clouddn.com/sea.jpg" rel="gallery_cj5baldux0006s4onsbx41n2x">
+      <a class="article-gallery-img fancybox" href="http://og0mzfnbv.bkt.clouddn.com/sea.jpg" rel="gallery_cj5bap19r0009roonddb16oxf">
         <img src="http://og0mzfnbv.bkt.clouddn.com/sea.jpg" itemprop="image">
       </a>
     
@@ -250,11 +272,11 @@ var themeMenus = {};
     
 <nav id="article-nav">
   
-    <a href="/2017/02/07/TOEFL/unfamiliar expressions(1)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/02/07/TOEFL/TPO30-R2/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          unfamiliar expression(1)
+          TPO30-R2
         
       </div>
     </a>
@@ -321,6 +343,8 @@ var themeMenus = {};
     <a href="/categories" class="mobile-nav-link">Categories</a>
   
     <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav> -->
     

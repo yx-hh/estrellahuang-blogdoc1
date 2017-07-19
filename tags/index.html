@@ -58,6 +58,8 @@ var themeMenus = {};
 
   themeMenus["/tags"] = "Tags"; 
 
+  themeMenus["/about"] = "About"; 
+
 </script>
 
 
@@ -93,6 +95,8 @@ var themeMenus = {};
                     
                       <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
                     
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
               </ul>
             </div>
           </nav>
@@ -102,6 +106,24 @@ var themeMenus = {};
   </div>
 </header>
 
+
+  <div style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+      var imgUrls = "css/images/pose.jpg,https://images.unsplash.com/photo-1464306208223-e0b4495a5553?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  </script>
 
 
 
@@ -382,13 +404,13 @@ var themeMenus = {};
   <div class="archive-article-inner">
     <header class="archive-article-header">
 
-      <a href="/2017/02/17/TOEFL/pronunciation/" class="archive-article-date">
+      <a href="/2017/02/17/TOEFL/TPO5-L2.Meme/" class="archive-article-date">
 		  <time datetime="2017-02-16T16:00:00.000Z" itemprop="datePublished">Feb 17, 2017</time>
 	  </a>
       
   
     <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/02/17/TOEFL/pronunciation/">error-prone pronunciation</a>
+      <a class="archive-article-title" href="/2017/02/17/TOEFL/TPO5-L2.Meme/">TPO5-L1.Meme</a>
     </h1>
   
 
@@ -401,13 +423,13 @@ var themeMenus = {};
   <div class="archive-article-inner">
     <header class="archive-article-header">
 
-      <a href="/2017/02/17/TOEFL/TPO5-L2.Meme/" class="archive-article-date">
+      <a href="/2017/02/17/TOEFL/pronunciation/" class="archive-article-date">
 		  <time datetime="2017-02-16T16:00:00.000Z" itemprop="datePublished">Feb 17, 2017</time>
 	  </a>
       
   
     <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/02/17/TOEFL/TPO5-L2.Meme/">TPO5-L1.Meme</a>
+      <a class="archive-article-title" href="/2017/02/17/TOEFL/pronunciation/">error-prone pronunciation</a>
     </h1>
   
 
@@ -648,13 +670,13 @@ var themeMenus = {};
   <div class="archive-article-inner">
     <header class="archive-article-header">
 
-      <a href="/2017/02/07/TOEFL/TPO30-R2/" class="archive-article-date">
+      <a href="/2017/02/07/TOEFL/TPO30-R3/" class="archive-article-date">
 		  <time datetime="2017-02-06T16:00:00.000Z" itemprop="datePublished">Feb 07, 2017</time>
 	  </a>
       
   
     <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/02/07/TOEFL/TPO30-R2/">TPO30-R2</a>
+      <a class="archive-article-title" href="/2017/02/07/TOEFL/TPO30-R3/">TPO30-R3</a>
     </h1>
   
 
@@ -667,13 +689,13 @@ var themeMenus = {};
   <div class="archive-article-inner">
     <header class="archive-article-header">
 
-      <a href="/2017/02/07/TOEFL/TPO30-R3/" class="archive-article-date">
+      <a href="/2017/02/07/TOEFL/TPO30-R2/" class="archive-article-date">
 		  <time datetime="2017-02-06T16:00:00.000Z" itemprop="datePublished">Feb 07, 2017</time>
 	  </a>
       
   
     <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/02/07/TOEFL/TPO30-R3/">TPO30-R3</a>
+      <a class="archive-article-title" href="/2017/02/07/TOEFL/TPO30-R2/">TPO30-R2</a>
     </h1>
   
 
@@ -1199,6 +1221,8 @@ var themeMenus = {};
     <a href="/categories" class="mobile-nav-link">Categories</a>
   
     <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav> -->
     
