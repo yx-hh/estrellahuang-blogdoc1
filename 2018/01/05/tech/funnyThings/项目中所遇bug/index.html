@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>项目所遇bugs | Welcome to my sweet world</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="MavenJava" />
+  
+  
+  
+  
+  <meta name="description" content="1.创建maven project的war工程时遇到pom.xml第一行报错Cannot detect Web Project version. Please specify version of Web Project…如下12345Cannot detect Web Project version. Please specify version of Web Project through M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目所遇BUGS">
+<meta property="og:url" content="http://yoursite.com/2018/01/05/tech/funnyThings/项目中所遇bug/index.html">
+<meta property="og:site_name" content="Welcome to my sweet world">
+<meta property="og:description" content="1.创建maven project的war工程时遇到pom.xml第一行报错Cannot detect Web Project version. Please specify version of Web Project…如下12345Cannot detect Web Project version. Please specify version of Web Project through M">
+<meta property="og:updated_time" content="2018-01-11T06:52:01.943Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目所遇BUGS">
+<meta name="twitter:description" content="1.创建maven project的war工程时遇到pom.xml第一行报错Cannot detect Web Project version. Please specify version of Web Project…如下12345Cannot detect Web Project version. Please specify version of Web Project through M">
+  
+    <link rel="alternate" href="/atom.xml" title="Welcome to my sweet world" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+</head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "Home"; 
+
+  themeMenus["/archives"] = "Archives"; 
+
+  themeMenus["/categories"] = "Categories"; 
+
+  themeMenus["/tags"] = "Tags"; 
+
+  themeMenus["/about"] = "About"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="Welcome to my sweet world" rel="home"> Welcome to my sweet world </a>
+            
+          </h1>
+
+          
+            <div class="site-description">Preparedness ensures success, unpreparedness spells failure.</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+
+
+  <div id="container">
+    <div id="wrap">
+
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-tech/funnyThings/项目中所遇bug" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      项目所遇BUGS
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2018/01/05/tech/funnyThings/项目中所遇bug/" class="article-date">
+	  <time datetime="2018-01-04T16:00:00.000Z" itemprop="datePublished">January 5, 2018</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-创建maven-project的war工程时遇到pom-xml第一行报错Cannot-detect-Web-Project-version-Please-specify-version-of-Web-Project…如下"><a href="#1-创建maven-project的war工程时遇到pom-xml第一行报错Cannot-detect-Web-Project-version-Please-specify-version-of-Web-Project…如下" class="headerlink" title="1.创建maven project的war工程时遇到pom.xml第一行报错Cannot detect Web Project version. Please specify version of Web Project…如下"></a>1.创建maven project的war工程时遇到pom.xml第一行报错Cannot detect Web Project version. Please specify version of Web Project…如下</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Cannot detect Web Project version. Please specify version of Web Project</div><div class="line"></div><div class="line"> through Maven project property <span class="tag">&lt;<span class="name">webVersion</span>&gt;</span>. E.g.:<span class="tag">&lt;<span class="name">properties</span>&gt;</span></div><div class="line"></div><div class="line"> <span class="tag">&lt;<span class="name">webVersion</span>&gt;</span>3.0<span class="tag">&lt;/<span class="name">webVersion</span>&gt;</span> <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>在pom.xml的project标签内加入如下代码，指定maven war包的编译版本即可</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-war-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>如果报错依然存在，关闭<code>pom.xml</code>;点击项目名右键，选择<code>maven</code>下的<code>update project..</code>,会跳出一个<code>update Maven project</code>勾选上刚刚建的这个项目，点击<code>ok</code>即可。</p>
+<h2 id="2-创建Maven项目后pom-xml报错“web-xml-is-missing-and-is-set-to-true”"><a href="#2-创建Maven项目后pom-xml报错“web-xml-is-missing-and-is-set-to-true”" class="headerlink" title="2.创建Maven项目后pom.xml报错“web.xml is missing and  is set to true”"></a>2.创建Maven项目后pom.xml报错“web.xml is missing and <failonmissingwebxml> is set to true”</failonmissingwebxml></h2><p>在<code>src</code>下面创建文件夹<code>WEB-INF</code>然后再创建一个名为<code>web.xml</code>的.xml文件即可。</p>
+<!---more--->
+<h2 id="3-在Myeclipse中启动tomcat本地服务器报错：-Unsupported-major-minor-version-52-0"><a href="#3-在Myeclipse中启动tomcat本地服务器报错：-Unsupported-major-minor-version-52-0" class="headerlink" title="3.在Myeclipse中启动tomcat本地服务器报错： Unsupported major.minor version 52.0"></a>3.在Myeclipse中启动tomcat本地服务器报错： Unsupported major.minor version 52.0</h2><p>参考stackoverflow:<a href="https://stackoverflow.com/questions/22489398/unsupported-major-minor-version-52-0" target="_blank" rel="external">https://stackoverflow.com/questions/22489398/unsupported-major-minor-version-52-0</a></p>
+<p>原因：java的版本不搭配，java的编译环境使用的是JDK1.8，但是runtime运行环境使用的是更低的版本，比如JDK1.7，可在Myeclipse或者eclipse的<code>windows</code>中找到<code>java</code>下面的<code>Complier</code>和<code>Installed JREs</code>中查看，换成相同版本的编译器即可。</p>
+<h2 id="4-启动tomcat服务器报错：NoSuchBeanDefinitionException-Dependency-annotations"><a href="#4-启动tomcat服务器报错：NoSuchBeanDefinitionException-Dependency-annotations" class="headerlink" title="4.启动tomcat服务器报错：NoSuchBeanDefinitionException..Dependency annotations.."></a>4.启动tomcat服务器报错：NoSuchBeanDefinitionException..Dependency annotations..</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.estrellahuang.bos.dao.CustomerRepository] found <span class="keyword">for</span> dependency: expected at least <span class="number">1</span> bean which qualifies as autowire candidate <span class="keyword">for</span> <span class="keyword">this</span> dependency. Dependency annotations: &#123;<span class="meta">@org</span>.springframework.beans.factory.annotation.Autowired(required=<span class="keyword">true</span>)&#125;</div></pre></td></tr></table></figure>
+<p>原因是:未能自动注入CustomerRepository对象，有两个可能的错误：</p>
+<p>一.applicatonContext.xml文件中未添加下面的代码，表示开始注解扫描。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 扫描 @Server @Controller @Repository --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.estrellahuang"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<p>二.没有在类名上配置注解，如下面的代码，在<code>CustomerServiceImpl</code>中使用了<code>@Autowired</code>自动注入<code>CustomerRepository</code>对象，但是没有调用<code>CustomerRepository</code>的任何方法，要知道Spring JPARepository是在使用的时候才会生成代理类对象的，所以下面的代码并没有生成一个bean，也就不存在于spring的容器中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@Service</div><div class="line">@Transactional</div><div class="line">public class CustomerServiceImpl implements CustomerService &#123;</div><div class="line"></div><div class="line">	@Autowired</div><div class="line">	private CustomerRepository customerRepository;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public interface CustomerRepository extends JpaRepository&lt;Customer,Integer&gt;,JpaSpecificationExecutor&lt;Customer&gt; &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>解决办法：在CustomerRepository实现类中添加@Repository ，或者先注释掉CustomerServiceImpl中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/*@Autowired</div><div class="line">private CustomerRepository customerRepository;*/</div></pre></td></tr></table></figure>
+<p>等到使用这个对象调用数据库时再去掉注释，即可。</p>
+<h2 id="5-使用阿里大鱼开发短信验证功能，启动服务器报错Caused-by-java-lang-ClassNotFoundException-com-aliyuncs-exceptions-ClientException"><a href="#5-使用阿里大鱼开发短信验证功能，启动服务器报错Caused-by-java-lang-ClassNotFoundException-com-aliyuncs-exceptions-ClientException" class="headerlink" title="5.使用阿里大鱼开发短信验证功能，启动服务器报错Caused by: java.lang.ClassNotFoundException: com.aliyuncs.exceptions.ClientException"></a>5.使用阿里大鱼开发短信验证功能，启动服务器报错Caused by: java.lang.ClassNotFoundException: com.aliyuncs.exceptions.ClientException</h2><p>小编在调用阿里的API时，并没有引入com.aliyuncs.exceptions.ClientException这个包，但是在抛异常时用到了这个包，将抛出的异常由ClientException改为Exception就行。并将</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import com.aliyuncs.exceptions.ClientException;</div></pre></td></tr></table></figure>
+<p>这句话删掉即可。</p>
+<h2 id="6-使用kindeditor时导入jsp文件，启动并访问服务器报错org-apache-jasper-JasperException-Unable-to-compile-class-for-JSP-An-error-occurred-at-line-1-in-the-generated-java-file"><a href="#6-使用kindeditor时导入jsp文件，启动并访问服务器报错org-apache-jasper-JasperException-Unable-to-compile-class-for-JSP-An-error-occurred-at-line-1-in-the-generated-java-file" class="headerlink" title="6.使用kindeditor时导入jsp文件，启动并访问服务器报错org.apache.jasper.JasperException: Unable to compile class for JSP: An error occurred at line: 1 in the generated java file.."></a>6.使用kindeditor时导入jsp文件，启动并访问服务器报错org.apache.jasper.JasperException: Unable to compile class for JSP: An error occurred at line: 1 in the generated java file..</h2><p>具体报错信息如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">HTTP Status 500 -</div><div class="line"></div><div class="line">type Exception report</div><div class="line"></div><div class="line">message</div><div class="line"></div><div class="line">description The server encountered an internal error () that prevented it from fulfilling this request.</div><div class="line"></div><div class="line">exception</div><div class="line"></div><div class="line">org.apache.jasper.JasperException: Unable to compile class for JSP: </div><div class="line"></div><div class="line">An error occurred at line: 1 in the generated java file</div><div class="line">The type java.io.ObjectInputStream cannot be resolved. It is indirectly referenced from required .class files</div><div class="line"></div><div class="line">An error occurred at line: 93 in the jsp file: /pages/upload_json.jsp</div><div class="line">Arrays cannot be resolved</div><div class="line">90: 		&#125;</div><div class="line">91: 		//检查扩展名</div><div class="line">92: 		String fileExt = fileName.substring(fileName.lastIndexOf(&quot;.&quot;) + 1).toLowerCase();</div><div class="line">93: 		if(!Arrays.&lt;String&gt;asList(extMap.get(dirName).split(&quot;,&quot;)).contains(fileExt))&#123;</div><div class="line">94: 			out.println(getError(&quot;上传文件扩展名是不允许的扩展名。\n只允许&quot; + extMap.get(dirName) + &quot;格式。&quot;));</div><div class="line">95: 			return;</div><div class="line">96: 		&#125;</div><div class="line"></div><div class="line"></div><div class="line">Stacktrace:</div><div class="line">	org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:92)</div><div class="line">	org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:330)</div><div class="line">	org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:439)</div><div class="line">	org.apache.jasper.compiler.Compiler.compile(Compiler.java:349)</div><div class="line">	org.apache.jasper.compiler.Compiler.compile(Compiler.java:327)</div><div class="line">	org.apache.jasper.compiler.Compiler.compile(Compiler.java:314)</div><div class="line">	org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:592)</div><div class="line">	org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:317)</div><div class="line">	org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:313)</div><div class="line">	org.apache.jasper.servlet.JspServlet.service(JspServlet.java:260)</div><div class="line">	javax.servlet.http.HttpServlet.service(HttpServlet.java:717)</div><div class="line"></div><div class="line">note The full stack trace of the root cause is available in the Apache Tomcat/6.0.29 logs.</div><div class="line">Apache Tomcat/6.0.29</div></pre></td></tr></table></figure>
+<p>原因：我用maven来管理项目导入的包，使用maven默认的tomcat插件，如下所示，其版本为上面报错信息的最后一行所示即：Apache Tomcat/6.0.29。但是小编使用的是JDK 1.8。tomcat6不支持JDK 1.8，所以发生报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;plugin&gt;</div><div class="line">  &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;</div><div class="line">  &lt;artifactId&gt;tomcat-maven-plugin&lt;/artifactId&gt;</div><div class="line">  &lt;version&gt;1.1&lt;/version&gt;</div><div class="line">  &lt;configuration&gt;</div><div class="line">  	&lt;port&gt;8080&lt;/port&gt;</div><div class="line">  &lt;/configuration&gt;</div><div class="line">&lt;/plugin&gt;</div></pre></td></tr></table></figure>
+<p>解决办法：将上面的tomcat-maven-plugin,换为如下所示tomcat7-maven-plugin，并以tomcat7:run启动即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;plugin&gt;</div><div class="line">  &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;</div><div class="line">  &lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;</div><div class="line">  &lt;version&gt;2.2&lt;/version&gt;</div><div class="line">  &lt;configuration&gt;</div><div class="line"> 	 &lt;port&gt;8080&lt;/port&gt;</div><div class="line">  &lt;/configuration&gt;</div><div class="line">&lt;/plugin&gt;</div></pre></td></tr></table></figure>
+<p>参考链接：</p>
+<p><a href="http://blog.csdn.net/u011781521/article/details/53713162" target="_blank" rel="external">http://blog.csdn.net/u011781521/article/details/53713162</a></p>
+<p><a href="http://blog.csdn.net/qtskyll/article/details/73551024" target="_blank" rel="external">http://blog.csdn.net/qtskyll/article/details/73551024</a></p>
+<h2 id="7-在PL-SQL中查询数据库，发现日期中的中文乱码，但是其他字段的中文并没有乱码。"><a href="#7-在PL-SQL中查询数据库，发现日期中的中文乱码，但是其他字段的中文并没有乱码。" class="headerlink" title="7.在PL/SQL中查询数据库，发现日期中的中文乱码，但是其他字段的中文并没有乱码。"></a>7.在PL/SQL中查询数据库，发现日期中的中文乱码，但是其他字段的中文并没有乱码。</h2><p>解决办法：配置Administrator的用户环境变量NLS_TIMESTAMP_FORMAT      YYYY-MM-DD HH24:MI:SS:FF6</p>
+<p>点击<code>此电脑</code>右键<code>属性</code>，点击<code>高级系统设置</code>，在弹出的窗口中选<code>高级</code>，下面有个<code>环境变量</code>，点击进去，在<code>Administrator的用户变量</code>下点<code>新建</code>，在变量名弹出的窗口中写入，变量名：<code>NLS_TIMESTAMP_FORMAT</code> ，变量值是：<code>YYYY-MM-DD HH24:MI:SS:FF6</code>。最后关闭PL/SQL客户端再重启即可。</p>
+<p>（小编在帖子里面看到说修改注册表中的NLS_LANG ,这个对日期中的中文乱码并没有什么作用（小编亲测），但是它可以解决开启PL/SQL端时提示的数据库字符集和客户端字符集不一致）</p>
+<h2 id="8-解决开启PL-SQL端时提示的数据库字符集和客户端字符集不一致"><a href="#8-解决开启PL-SQL端时提示的数据库字符集和客户端字符集不一致" class="headerlink" title="8.解决开启PL/SQL端时提示的数据库字符集和客户端字符集不一致"></a>8.解决开启PL/SQL端时提示的数据库字符集和客户端字符集不一致</h2><p>解决办法：按<code>win+R</code>,在弹出的小窗口中输入<code>regedit</code>，然后按回车键，就会跳出来<code>注册表编辑器</code>。按照如下路径<code>计算机\KEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\ORACLE\KEY_XE</code>就可以找到oracle的NLS_LANG。点击<code>NLS_LANG</code>右键，选<code>修改</code>，将弹出的窗口中的<code>数值数据</code>改为<code>SIMPLIFIED CHINESE_CHINA.AL32UTF8</code>，它原来的数据是<code>SIMPLIFIED CHINESE_CHINA.ZHS16GBK</code>点击<code>确定</code>即可。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>, <a class="article-category-link" href="/categories/tech/Maven/">Maven</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maven/">Maven</a></li></ul>
+
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTYxNi82MTg0">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/11/tech/funnyThings/commons-ioConflict/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          解决org.apache.commons.io.FileUtils中没有copyFile(File,OutputStream)这个方法或者使用这个方法报错
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/10/share/grocery/一个手机壳的故事--梵高/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">一个手机壳的故事--梵高</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-创建maven-project的war工程时遇到pom-xml第一行报错Cannot-detect-Web-Project-version-Please-specify-version-of-Web-Project…如下"><span class="nav-number">1.</span> <span class="nav-text">1.创建maven project的war工程时遇到pom.xml第一行报错Cannot detect Web Project version. Please specify version of Web Project…如下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-创建Maven项目后pom-xml报错“web-xml-is-missing-and-is-set-to-true”"><span class="nav-number">2.</span> <span class="nav-text">2.创建Maven项目后pom.xml报错“web.xml is missing and  is set to true”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-在Myeclipse中启动tomcat本地服务器报错：-Unsupported-major-minor-version-52-0"><span class="nav-number">3.</span> <span class="nav-text">3.在Myeclipse中启动tomcat本地服务器报错： Unsupported major.minor version 52.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-启动tomcat服务器报错：NoSuchBeanDefinitionException-Dependency-annotations"><span class="nav-number">4.</span> <span class="nav-text">4.启动tomcat服务器报错：NoSuchBeanDefinitionException..Dependency annotations..</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-使用阿里大鱼开发短信验证功能，启动服务器报错Caused-by-java-lang-ClassNotFoundException-com-aliyuncs-exceptions-ClientException"><span class="nav-number">5.</span> <span class="nav-text">5.使用阿里大鱼开发短信验证功能，启动服务器报错Caused by: java.lang.ClassNotFoundException: com.aliyuncs.exceptions.ClientException</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-使用kindeditor时导入jsp文件，启动并访问服务器报错org-apache-jasper-JasperException-Unable-to-compile-class-for-JSP-An-error-occurred-at-line-1-in-the-generated-java-file"><span class="nav-number">6.</span> <span class="nav-text">6.使用kindeditor时导入jsp文件，启动并访问服务器报错org.apache.jasper.JasperException: Unable to compile class for JSP: An error occurred at line: 1 in the generated java file..</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-在PL-SQL中查询数据库，发现日期中的中文乱码，但是其他字段的中文并没有乱码。"><span class="nav-number">7.</span> <span class="nav-text">7.在PL/SQL中查询数据库，发现日期中的中文乱码，但是其他字段的中文并没有乱码。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-解决开启PL-SQL端时提示的数据库字符集和客户端字符集不一致"><span class="nav-number">8.</span> <span class="nav-text">8.解决开启PL/SQL端时提示的数据库字符集和客户端字符集不一致</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2018 Welcome to my sweet world All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+      Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+
+
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/love.js" async=""></script>
+  <!-- 背景动画 -->
+  <script type="text/javascript" src="/js/particle.js" ></script>
+
+</body>
+</html>

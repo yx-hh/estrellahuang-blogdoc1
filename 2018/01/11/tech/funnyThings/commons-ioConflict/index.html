@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>项目中所遇bug | Welcome to my sweet world</title>
+  <title>解决org.apache.commons.io.fileutils中没有copyfile(file,outputstream)这个方法或者使用这个方法报错 | Welcome to my sweet world</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="MavenJava" />
@@ -11,16 +11,27 @@
   
   
   
-  <meta name="description" content="1.创建maven project的war工程时遇到pom.xml第一行报错Cannot detect Web Project version. Please specify version of Web Project…如下12345Cannot detect Web Project version. Please specify version of Web Project through M">
+  <meta name="description" content="原因commons.io版本冲突，使用了低版本1.4的，里面没有方法copyFile(File,OutputStream)。应该使用2.2的版本。
+bug出现的背景小编使用kindeditor来实现文件上传，在KindEditor官网里面找到了安装包KindEditor 4.1.11 (2016-03-31) [1143KB]，网址如下http://kindeditor.net/down.php，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="项目中所遇BUG">
-<meta property="og:url" content="http://yoursite.com/2018/01/05/tech/鸟哥的linux私房菜/BUGSInProjects/index.html">
+<meta property="og:title" content="解决org.apache.commons.io.FileUtils中没有copyFile(File,OutputStream)这个方法或者使用这个方法报错">
+<meta property="og:url" content="http://yoursite.com/2018/01/11/tech/funnyThings/commons-ioConflict/index.html">
 <meta property="og:site_name" content="Welcome to my sweet world">
-<meta property="og:description" content="1.创建maven project的war工程时遇到pom.xml第一行报错Cannot detect Web Project version. Please specify version of Web Project…如下12345Cannot detect Web Project version. Please specify version of Web Project through M">
-<meta property="og:updated_time" content="2018-01-04T16:48:56.784Z">
+<meta property="og:description" content="原因commons.io版本冲突，使用了低版本1.4的，里面没有方法copyFile(File,OutputStream)。应该使用2.2的版本。
+bug出现的背景小编使用kindeditor来实现文件上传，在KindEditor官网里面找到了安装包KindEditor 4.1.11 (2016-03-31) [1143KB]，网址如下http://kindeditor.net/down.php，">
+<meta property="og:image" content="http://og0mzfnbv.bkt.clouddn.com/kindeditorJspLib.PNG">
+<meta property="og:image" content="http://og0mzfnbv.bkt.clouddn.com/commons-io1.4.PNG">
+<meta property="og:image" content="http://og0mzfnbv.bkt.clouddn.com/commons-io%201.4-2.PNG">
+<meta property="og:image" content="http://og0mzfnbv.bkt.clouddn.com/commons-io%201.4-3.PNG">
+<meta property="og:image" content="http://og0mzfnbv.bkt.clouddn.com/commons-io%202.2.PNG">
+<meta property="og:image" content="http://og0mzfnbv.bkt.clouddn.com/commons-io%202.2-2.PNG">
+<meta property="og:image" content="http://og0mzfnbv.bkt.clouddn.com/commons-io%202.2-4.PNG">
+<meta property="og:updated_time" content="2018-01-11T06:59:15.980Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="项目中所遇BUG">
-<meta name="twitter:description" content="1.创建maven project的war工程时遇到pom.xml第一行报错Cannot detect Web Project version. Please specify version of Web Project…如下12345Cannot detect Web Project version. Please specify version of Web Project through M">
+<meta name="twitter:title" content="解决org.apache.commons.io.FileUtils中没有copyFile(File,OutputStream)这个方法或者使用这个方法报错">
+<meta name="twitter:description" content="原因commons.io版本冲突，使用了低版本1.4的，里面没有方法copyFile(File,OutputStream)。应该使用2.2的版本。
+bug出现的背景小编使用kindeditor来实现文件上传，在KindEditor官网里面找到了安装包KindEditor 4.1.11 (2016-03-31) [1143KB]，网址如下http://kindeditor.net/down.php，">
+<meta name="twitter:image" content="http://og0mzfnbv.bkt.clouddn.com/kindeditorJspLib.PNG">
   
     <link rel="alternate" href="/atom.xml" title="Welcome to my sweet world" type="application/atom+xml">
   
@@ -116,7 +127,7 @@ var themeMenus = {};
 
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-tech/鸟哥的linux私房菜/BUGSInProjects" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-tech/funnyThings/commons-ioConflict" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -124,7 +135,7 @@ var themeMenus = {};
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      项目中所遇BUG
+      解决org.apache.commons.io.FileUtils中没有copyFile(File,OutputStream)这个方法或者使用这个方法报错
     </h1>
   
 
@@ -132,8 +143,8 @@ var themeMenus = {};
     
     <div class="article-meta">
       
-	Posted on <a href="/2018/01/05/tech/鸟哥的linux私房菜/BUGSInProjects/" class="article-date">
-	  <time datetime="2018-01-04T16:00:00.000Z" itemprop="datePublished">January 5, 2018</time>
+	Posted on <a href="/2018/01/11/tech/funnyThings/commons-ioConflict/" class="article-date">
+	  <time datetime="2018-01-10T16:00:00.000Z" itemprop="datePublished">January 11, 2018</time>
 	</a>
 
       
@@ -144,12 +155,24 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-创建maven-project的war工程时遇到pom-xml第一行报错Cannot-detect-Web-Project-version-Please-specify-version-of-Web-Project…如下"><a href="#1-创建maven-project的war工程时遇到pom-xml第一行报错Cannot-detect-Web-Project-version-Please-specify-version-of-Web-Project…如下" class="headerlink" title="1.创建maven project的war工程时遇到pom.xml第一行报错Cannot detect Web Project version. Please specify version of Web Project…如下"></a>1.创建maven project的war工程时遇到pom.xml第一行报错Cannot detect Web Project version. Please specify version of Web Project…如下</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Cannot detect Web Project version. Please specify version of Web Project</div><div class="line"></div><div class="line"> through Maven project property <span class="tag">&lt;<span class="name">webVersion</span>&gt;</span>. E.g.:<span class="tag">&lt;<span class="name">properties</span>&gt;</span></div><div class="line"></div><div class="line"> <span class="tag">&lt;<span class="name">webVersion</span>&gt;</span>3.0<span class="tag">&lt;/<span class="name">webVersion</span>&gt;</span> <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>在pom.xml的project标签内加入如下代码，指定maven war包的编译版本即可</p>
+        <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>commons.io版本冲突，使用了低版本1.4的，里面没有方法copyFile(File,OutputStream)。应该使用2.2的版本。</p>
+<h2 id="bug出现的背景"><a href="#bug出现的背景" class="headerlink" title="bug出现的背景"></a>bug出现的背景</h2><p>小编使用kindeditor来实现文件上传，在KindEditor官网里面找到了安装包<a href="https://github.com/kindsoft/kindeditor/releases/download/v4.1.11/kindeditor-4.1.11-zh-CN.zip" target="_blank" rel="external">KindEditor 4.1.11 (2016-03-31)</a> [1143KB]，网址如下<a href="http://kindeditor.net/down.php" target="_blank" rel="external">http://kindeditor.net/down.php</a>，小编用java开发，选择了jsp版本，在lib里面有三个文件，如下所示</p>
+<p><img src="http://og0mzfnbv.bkt.clouddn.com/kindeditorJspLib.PNG" alt=""></p>
+<p>小编使用maven管理所有使用的jar包，将上诉所有的jar包导入maven仓库后，坐标导入上述版本。然后BUG的种子就埋下了。</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>去掉maven坐标中的commons-io 1.4的版本即可。</p>
 <a id="more"></a>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-war-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>如果报错依然存在，关闭<code>pom.xml</code>;点击项目名右键，选择<code>maven</code>下的<code>update project..</code>,会跳出一个<code>update Maven project</code>勾选上刚刚建的这个项目，点击<code>ok</code>即可。</p>
-<h2 id="2-创建Maven项目后pom-xml报错“web-xml-is-missing-and-is-set-to-true”"><a href="#2-创建Maven项目后pom-xml报错“web-xml-is-missing-and-is-set-to-true”" class="headerlink" title="2.创建Maven项目后pom.xml报错“web.xml is missing and  is set to true”"></a>2.创建Maven项目后pom.xml报错“web.xml is missing and <failonmissingwebxml> is set to true”</failonmissingwebxml></h2><p>在<code>src</code>下面创建文件夹<code>WEB-INF</code>然后再创建一个名为<code>web.xml</code>的.xml文件即可。</p>
+<h2 id="原因详解"><a href="#原因详解" class="headerlink" title="原因详解"></a>原因详解</h2><p><strong>不同版本的commons-io里面包含的方法不一样，去看看你自己用的哪个版本的commons-io吧！</strong></p>
+<p>1.打开自己的org.apache.commons.io.FileUtils点击outline，或者在eclipse或myeclipse环境下crtl+o快捷键显示，如下，没有copyFile(File,OutputStream).</p>
+<p><img src="http://og0mzfnbv.bkt.clouddn.com/commons-io1.4.PNG" alt="http://og0mzfnbv.bkt.clouddn.com/commons-io1.4.PNG"></p>
+<p>2.打开项目找到Maven Dependencies,查看里面的jar包,寻找commons-io,发现里面有一个commons-io-1.4的。再想一下它是怎么进来的，去pox.xml中寻找它的坐标。果然发现了它的踪迹。<img src="http://og0mzfnbv.bkt.clouddn.com/commons-io%201.4-2.PNG" alt=""></p>
+<p>3.在导入的包的继承结构中搜索commons-io发现存在一个版本冲突，commons-fileupload这个jar包关联的是commons-io:2.2这个版本的，maven仓库自动导入了2.2的jar包。根据图片上面的提示它被1.4版本的commons-io覆盖了。那么去掉1.4会发生什么呢？</p>
+<p><img src="http://og0mzfnbv.bkt.clouddn.com/commons-io%201.4-3.PNG" alt=""></p>
+<p>4.注释掉commons-io 1.4的版本，如下</p>
+<p><img src="http://og0mzfnbv.bkt.clouddn.com/commons-io%202.2.PNG" alt=" http://og0mzfnbv.bkt.clouddn.com/commons-io%202.2.PNG"></p>
+<p>5.commons-io : 2.2的版本被编译啦！而且Maven Dependencies里面存在的也是如下图2.2的版本<img src="http://og0mzfnbv.bkt.clouddn.com/commons-io%202.2-2.PNG" alt=""></p>
+<p>6.再去org.apache.commons.io.FileUtils查看他的copyFile方法，有copyFile(File,OutputStream)了，又可以开心玩耍啦！</p>
+<p><img src="http://og0mzfnbv.bkt.clouddn.com/commons-io%202.2-4.PNG" alt=""></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>下次再发生找不到方法的时候，看看是不是工具包导错了，或者版本冲突被和谐了！</p>
 
       
     </div>
@@ -194,9 +217,9 @@ var themeMenus = {};
 <nav id="article-nav">
   
   
-    <a href="/2017/09/10/share/grocery/一个手机壳的故事--梵高/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/01/05/tech/funnyThings/项目中所遇bug/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">一个手机壳的故事--梵高</div>
+      <div class="article-nav-title">项目所遇BUGS</div>
     </a>
   
 </nav>
@@ -210,7 +233,7 @@ var themeMenus = {};
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-创建maven-project的war工程时遇到pom-xml第一行报错Cannot-detect-Web-Project-version-Please-specify-version-of-Web-Project…如下"><span class="nav-number">1.</span> <span class="nav-text">1.创建maven project的war工程时遇到pom.xml第一行报错Cannot detect Web Project version. Please specify version of Web Project…如下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-创建Maven项目后pom-xml报错“web-xml-is-missing-and-is-set-to-true”"><span class="nav-number">2.</span> <span class="nav-text">2.创建Maven项目后pom.xml报错“web.xml is missing and  is set to true”</span></a></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原因"><span class="nav-number">1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bug出现的背景"><span class="nav-number">2.</span> <span class="nav-text">bug出现的背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法"><span class="nav-number">3.</span> <span class="nav-text">解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原因详解"><span class="nav-number">4.</span> <span class="nav-text">原因详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol>
     
     </div>
   </aside>
