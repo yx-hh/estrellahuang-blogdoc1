@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>解决用elasticsearch索引同步数据库时org.elasticsearch.action.actionrequestvalidationexception validation failed 1 no requests added | Welcome to my sweet world</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="MavenJavaElasticSearch" />
+  
+  
+  
+  
+  <meta name="description" content="原因：数据库没有数据，但是创建索引的时候需要用到数据库中的数据，执行同步索引库wayBillIndexRepository.save(wayBills);时发生错误。而不是常见的Bulk API Error.
+解决办法：给数据库插入数据。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决用elasticsearch索引同步数据库时org.elasticsearch.action.ActionRequestValidationException Validation Failed 1 no requests added">
+<meta property="og:url" content="http://yoursite.com/2018/01/19/tech/funnyThings/Validation Failed no requests added/index.html">
+<meta property="og:site_name" content="Welcome to my sweet world">
+<meta property="og:description" content="原因：数据库没有数据，但是创建索引的时候需要用到数据库中的数据，执行同步索引库wayBillIndexRepository.save(wayBills);时发生错误。而不是常见的Bulk API Error.
+解决办法：给数据库插入数据。">
+<meta property="og:updated_time" content="2018-01-19T10:56:25.394Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="解决用elasticsearch索引同步数据库时org.elasticsearch.action.ActionRequestValidationException Validation Failed 1 no requests added">
+<meta name="twitter:description" content="原因：数据库没有数据，但是创建索引的时候需要用到数据库中的数据，执行同步索引库wayBillIndexRepository.save(wayBills);时发生错误。而不是常见的Bulk API Error.
+解决办法：给数据库插入数据。">
+  
+    <link rel="alternate" href="/atom.xml" title="Welcome to my sweet world" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+</head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "Home"; 
+
+  themeMenus["/archives"] = "Archives"; 
+
+  themeMenus["/categories"] = "Categories"; 
+
+  themeMenus["/tags"] = "Tags"; 
+
+  themeMenus["/about"] = "About"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="Welcome to my sweet world" rel="home"> Welcome to my sweet world </a>
+            
+          </h1>
+
+          
+            <div class="site-description">Preparedness ensures success, unpreparedness spells failure.</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+
+
+  <div id="container">
+    <div id="wrap">
+
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-tech/funnyThings/Validation Failed no requests added" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      解决用elasticsearch索引同步数据库时org.elasticsearch.action.ActionRequestValidationException Validation Failed 1 no requests added
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2018/01/19/tech/funnyThings/Validation Failed no requests added/" class="article-date">
+	  <time datetime="2018-01-18T16:00:00.000Z" itemprop="datePublished">January 19, 2018</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="原因："><a href="#原因：" class="headerlink" title="原因："></a>原因：</h2><p>数据库没有数据，但是创建索引的时候需要用到数据库中的数据，执行同步索引库<code>wayBillIndexRepository.save(wayBills);</code>时发生错误。<br>而不是常见的Bulk API Error.</p>
+<h2 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h2><p>给数据库插入数据。<br><a id="more"></a></p>
+<h2 id="各层的代码："><a href="#各层的代码：" class="headerlink" title="各层的代码："></a>各层的代码：</h2><p>junit测试程序如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">import org.junit.Test;</div><div class="line">import org.junit.runner.RunWith;</div><div class="line">import org.springframework.beans.factory.annotation.Autowired;</div><div class="line">import org.springframework.test.context.ContextConfiguration;</div><div class="line">import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;</div><div class="line"></div><div class="line">import com.estrellahuang.bos.service.WayBillService;</div><div class="line"></div><div class="line">@RunWith(SpringJUnit4ClassRunner.class)</div><div class="line">@ContextConfiguration(locations = &quot;classpath:applicationContext.xml&quot;)</div><div class="line">public class WayBillServiceTest &#123;</div><div class="line"></div><div class="line">	@Autowired</div><div class="line">	private WayBillService wayBillService;</div><div class="line"></div><div class="line">	@Test</div><div class="line">	public void testSyncIndex() &#123;</div><div class="line">		wayBillService.syncIndex();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>service.java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import org.springframework.data.domain.Page;</div><div class="line">import org.springframework.data.domain.Pageable;</div><div class="line"></div><div class="line">import com.estrellahuang.bos.domain.take_delivery.WayBill;</div><div class="line"></div><div class="line">public interface WayBillService &#123;</div><div class="line"></div><div class="line">	void syncIndex();</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>service.Impl.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.estrellahuang.bos.service.impl;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.BeanUtils;</div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</div><div class="line"><span class="keyword">import</span> org.springframework.data.domain.Page;</div><div class="line"><span class="keyword">import</span> org.springframework.data.domain.Pageable;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</div><div class="line"><span class="keyword">import</span> org.springframework.transaction.annotation.Transactional;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.estrellahuang.bos.dao.WayBillRepository;</div><div class="line"><span class="keyword">import</span> com.estrellahuang.bos.domain.take_delivery.WayBill;</div><div class="line"><span class="keyword">import</span> com.estrellahuang.bos.index.dao.WayBillIndexRepository;</div><div class="line"><span class="keyword">import</span> com.estrellahuang.bos.service.WayBillService;</div><div class="line"></div><div class="line"><span class="meta">@Service</span></div><div class="line"><span class="meta">@Transactional</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WayBillServiceImpl</span> <span class="keyword">implements</span> <span class="title">WayBillService</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Autowired</span></div><div class="line">	<span class="keyword">private</span> WayBillRepository wayBillRepository;</div><div class="line"></div><div class="line">	<span class="comment">// 注入索引库DAO</span></div><div class="line">	<span class="meta">@Autowired</span></div><div class="line">	<span class="keyword">private</span> WayBillIndexRepository wayBillIndexRepository;</div><div class="line"></div><div class="line"></div><div class="line">	<span class="comment">// 启动定时任务 Quartz 每天定时同步 数据库信息和索引库信息</span></div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">syncIndex</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="comment">// 查询数据库</span></div><div class="line">		List&lt;WayBill&gt; wayBills = wayBillRepository.findAll();</div><div class="line">		<span class="comment">//获取数据库中表的数据条数</span></div><div class="line">      	<span class="comment">//System.out.println(wayBills.size());</span></div><div class="line">		<span class="comment">//创建新的对象</span></div><div class="line">		<span class="comment">//WayBill wayBill = new WayBill();</span></div><div class="line">		<span class="comment">//wayBill.setPayTypeNum("Estrella Huang");</span></div><div class="line">      	<span class="comment">// 同步索引库</span></div><div class="line">		wayBillIndexRepository.save(wayBills);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>dao层的两个repository：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">package com.estrellahuang.bos.index.dao;</div><div class="line"></div><div class="line">import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;</div><div class="line"></div><div class="line">import com.estrellahuang.bos.domain.take_delivery.WayBill;</div><div class="line"></div><div class="line">public interface WayBillIndexRepository extends ElasticsearchRepository&lt;WayBill,Integer&gt;&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">package com.estrellahuang.bos.dao;</div><div class="line"></div><div class="line">import org.springframework.data.jpa.repository.JpaRepository;</div><div class="line">import org.springframework.data.jpa.repository.JpaSpecificationExecutor;</div><div class="line"></div><div class="line">import com.estrellahuang.bos.domain.take_delivery.WayBill;</div><div class="line"></div><div class="line">public interface WayBillRepository extends JpaRepository&lt;WayBill,Integer&gt;,JpaSpecificationExecutor&lt;WayBill&gt; &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="报错信息如下："><a href="#报错信息如下：" class="headerlink" title="报错信息如下："></a>报错信息如下：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line">org.elasticsearch.action.ActionRequestValidationException: Validation Failed: <span class="number">1</span>: no requests added;</div><div class="line">at org.elasticsearch.action.ValidateActions.addValidationError(ValidateActions.java:<span class="number">29</span>)</div><div class="line">at org.elasticsearch.action.bulk.BulkRequest.validate(BulkRequest.java:<span class="number">487</span>)</div><div class="line">at org.elasticsearch.action.TransportActionNodeProxy.execute(TransportActionNodeProxy.java:<span class="number">46</span>)</div><div class="line">at org.elasticsearch.client.transport.support.TransportProxyClient$<span class="number">1</span>.doWithNode(TransportProxyClient.java:<span class="number">58</span>)</div><div class="line">at org.elasticsearch.client.transport.TransportClientNodesService.execute(TransportClientNodesService.java:<span class="number">212</span>)</div><div class="line">at org.elasticsearch.client.transport.support.TransportProxyClient.execute(TransportProxyClient.java:<span class="number">55</span>)</div><div class="line">at org.elasticsearch.client.transport.TransportClient.doExecute(TransportClient.java:<span class="number">288</span>)</div><div class="line">at org.elasticsearch.client.support.AbstractClient.execute(AbstractClient.java:<span class="number">359</span>)</div><div class="line">at org.elasticsearch.action.ActionRequestBuilder.execute(ActionRequestBuilder.java:<span class="number">86</span>)</div><div class="line">at org.elasticsearch.action.ActionRequestBuilder.execute(ActionRequestBuilder.java:<span class="number">56</span>)</div><div class="line">at org.springframework.data.elasticsearch.core.ElasticsearchTemplate.bulkIndex(ElasticsearchTemplate.java:<span class="number">571</span>)</div><div class="line">at org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository.save(AbstractElasticsearchRepository.java:<span class="number">171</span>)</div><div class="line">at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</div><div class="line">at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:<span class="number">62</span>)</div><div class="line">at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:<span class="number">43</span>)</div><div class="line">at java.lang.reflect.Method.invoke(Method.java:<span class="number">498</span>)</div><div class="line">at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.executeMethodOn(RepositoryFactorySupport.java:<span class="number">503</span>)</div><div class="line">at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:<span class="number">488</span>)</div><div class="line">at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:<span class="number">460</span>)</div><div class="line">at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:<span class="number">179</span>)</div><div class="line">at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:<span class="number">61</span>)</div><div class="line">at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:<span class="number">179</span>)</div><div class="line">at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:<span class="number">92</span>)</div><div class="line">at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:<span class="number">179</span>)</div><div class="line">at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:<span class="number">208</span>)</div><div class="line">at com.sun.proxy.$Proxy84.save(Unknown Source)</div><div class="line">at cn.itcast.bos.service.impl.WayBillServiceImpl.syncIndex(WayBillServiceImpl.java:<span class="number">75</span>)</div><div class="line">at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</div><div class="line">at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:<span class="number">62</span>)</div><div class="line">at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:<span class="number">43</span>)</div><div class="line">at java.lang.reflect.Method.invoke(Method.java:<span class="number">498</span>)</div><div class="line">at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:<span class="number">302</span>)</div><div class="line">at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:<span class="number">190</span>)</div><div class="line">at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:<span class="number">157</span>)</div><div class="line">at org.springframework.transaction.interceptor.TransactionInterceptor$<span class="number">1</span>.proceedWithInvocation(TransactionInterceptor.java:<span class="number">99</span>)</div><div class="line">at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:<span class="number">281</span>)</div><div class="line">at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:<span class="number">96</span>)</div><div class="line">at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:<span class="number">179</span>)</div><div class="line">at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:<span class="number">208</span>)</div><div class="line">at com.sun.proxy.$Proxy85.syncIndex(Unknown Source)</div><div class="line">at cn.itcast.bos.service.take_delivery.WayBillServiceTest.testSyncIndex(WayBillServiceTest.java:<span class="number">20</span>)</div><div class="line">at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</div><div class="line">at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:<span class="number">62</span>)</div><div class="line">at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:<span class="number">43</span>)</div><div class="line">at java.lang.reflect.Method.invoke(Method.java:<span class="number">498</span>)</div><div class="line">at org.junit.runners.model.FrameworkMethod$<span class="number">1</span>.runReflectiveCall(FrameworkMethod.java:<span class="number">47</span>)</div><div class="line">at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:<span class="number">12</span>)</div><div class="line">at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:<span class="number">44</span>)</div><div class="line">at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:<span class="number">17</span>)</div><div class="line">at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:<span class="number">75</span>)</div><div class="line">at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:<span class="number">86</span>)</div><div class="line">at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:<span class="number">84</span>)</div><div class="line">at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:<span class="number">271</span>)</div><div class="line">at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:<span class="number">254</span>)</div><div class="line">at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:<span class="number">89</span>)</div><div class="line">at org.junit.runners.ParentRunner$<span class="number">3</span>.run(ParentRunner.java:<span class="number">238</span>)</div><div class="line">at org.junit.runners.ParentRunner$<span class="number">1</span>.schedule(ParentRunner.java:<span class="number">63</span>)</div><div class="line">at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:<span class="number">236</span>)</div><div class="line">at org.junit.runners.ParentRunner.access$<span class="number">000</span>(ParentRunner.java:<span class="number">53</span>)</div><div class="line">at org.junit.runners.ParentRunner$<span class="number">2</span>.evaluate(ParentRunner.java:<span class="number">229</span>)</div><div class="line">at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:<span class="number">61</span>)</div><div class="line">at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:<span class="number">70</span>)</div><div class="line">at org.junit.runners.ParentRunner.run(ParentRunner.java:<span class="number">309</span>)</div><div class="line">at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:<span class="number">193</span>)</div><div class="line">at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:<span class="number">86</span>)</div><div class="line">at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:<span class="number">38</span>)</div><div class="line">at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:<span class="number">459</span>)</div><div class="line">at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:<span class="number">678</span>)</div><div class="line">at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:<span class="number">382</span>)</div><div class="line">at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:<span class="number">192</span>)</div></pre></td></tr></table></figure>
+<h2 id="小编碎碎念："><a href="#小编碎碎念：" class="headerlink" title="小编碎碎念："></a>小编碎碎念：</h2><p>这次的bug，让我死去活来好几次，StackOverflow，CSDN，折腾了好久，然而没有我要的答案，最后在朋友的点拨下找到了。我的数据库没数据啊，方法不能执行，又咋滴能同步，自然就没有request啊！这次console中没有报错，只在junit里面报错，所以老觉着是环境的问题！然而我还是太年轻，debug走一走就知道有没有啊！</p>
+<p>经验告诉我：bug出现不是在前端，不在后台程序，就是在数据库啊，启动程序最好debug模式，该打的断点不能少！</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>, <a class="article-category-link" href="/categories/tech/ElasticSearch/">ElasticSearch</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ElasticSearch/">ElasticSearch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maven/">Maven</a></li></ul>
+
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTYxNi82MTg0">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/19/tech/funnyThings/AbstractMethodError/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">解决启动服务器,报错Caused by java.lang.AbstractMethodError</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原因："><span class="nav-number">1.</span> <span class="nav-text">原因：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法："><span class="nav-number">2.</span> <span class="nav-text">解决办法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各层的代码："><span class="nav-number">3.</span> <span class="nav-text">各层的代码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错信息如下："><span class="nav-number">4.</span> <span class="nav-text">报错信息如下：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小编碎碎念："><span class="nav-number">5.</span> <span class="nav-text">小编碎碎念：</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2018 Welcome to my sweet world All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+      Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+
+
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/love.js" async=""></script>
+  <!-- 背景动画 -->
+  <script type="text/javascript" src="/js/particle.js" ></script>
+
+</body>
+</html>
