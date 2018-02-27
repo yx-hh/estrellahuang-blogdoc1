@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>整理实用资料——持续更新 | Welcome to my sweet world</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Java" />
+  
+  
+  
+  
+  <meta name="description" content="@JoinColumn 详解http://blog.csdn.net/u010588262/article/details/76667283
+JPA之@GeneratedValue注解http://blog.csdn.net/u012493207/article/details/50846616">
+<meta property="og:type" content="article">
+<meta property="og:title" content="整理实用资料——持续更新">
+<meta property="og:url" content="http://yoursite.com/2018/02/27/tech/funnyThings/Java实用资料整理/index.html">
+<meta property="og:site_name" content="Welcome to my sweet world">
+<meta property="og:description" content="@JoinColumn 详解http://blog.csdn.net/u010588262/article/details/76667283
+JPA之@GeneratedValue注解http://blog.csdn.net/u012493207/article/details/50846616">
+<meta property="og:updated_time" content="2018-02-27T14:13:47.033Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="整理实用资料——持续更新">
+<meta name="twitter:description" content="@JoinColumn 详解http://blog.csdn.net/u010588262/article/details/76667283
+JPA之@GeneratedValue注解http://blog.csdn.net/u012493207/article/details/50846616">
+  
+    <link rel="alternate" href="/atom.xml" title="Welcome to my sweet world" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+</head>
+
+<a href="https://github.com/estrellahuang"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "Home"; 
+
+  themeMenus["/archives"] = "Archives"; 
+
+  themeMenus["/Categories"] = "Categories"; 
+
+  themeMenus["/tags"] = "Tags"; 
+
+  themeMenus["/about"] = "About"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="Welcome to my sweet world" rel="home"> Welcome to my sweet world </a>
+            
+          </h1>
+
+          
+            <div class="site-description">Preparedness ensures success, unpreparedness spells failure.</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/Categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+
+
+  <div id="container">
+    <div id="wrap">
+
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-tech/funnyThings/Java实用资料整理" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      整理实用资料——持续更新
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2018/02/27/tech/funnyThings/Java实用资料整理/" class="article-date">
+	  <time datetime="2018-02-26T16:00:00.000Z" itemprop="datePublished">February 27, 2018</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JoinColumn-详解"><a href="#JoinColumn-详解" class="headerlink" title="@JoinColumn 详解"></a>@JoinColumn 详解</h2><p><a href="http://blog.csdn.net/u010588262/article/details/76667283" target="_blank" rel="external">http://blog.csdn.net/u010588262/article/details/76667283</a></p>
+<h2 id="JPA之-GeneratedValue注解"><a href="#JPA之-GeneratedValue注解" class="headerlink" title="JPA之@GeneratedValue注解"></a>JPA之@GeneratedValue注解</h2><p><a href="http://blog.csdn.net/u012493207/article/details/50846616" target="_blank" rel="external">http://blog.csdn.net/u012493207/article/details/50846616</a></p>
+<a id="more"></a>
+<h2 id="工具类——划分地址字符串中的省市区县村"><a href="#工具类——划分地址字符串中的省市区县村" class="headerlink" title="工具类——划分地址字符串中的省市区县村"></a>工具类——划分地址字符串中的省市区县村</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">     * 解析地址</div><div class="line">     * <span class="doctag">@author</span> lin</div><div class="line">     * <span class="doctag">@param</span> address</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> List&lt;Map&lt;String,String&gt;&gt; addressResolution(String address)&#123;</div><div class="line">        String regex=<span class="string">"(?&lt;province&gt;[^省]+省|.+自治区)(?&lt;city&gt;[^市]+市|.+自治州)(?&lt;county&gt;[^县]+县|.+区)?(?&lt;town&gt;[^区]+区|.+镇)?(?&lt;village&gt;.*)"</span>;</div><div class="line">        Matcher m=Pattern.compile(regex).matcher(address);</div><div class="line">        String province=<span class="keyword">null</span>,city=<span class="keyword">null</span>,county=<span class="keyword">null</span>,town=<span class="keyword">null</span>,village=<span class="keyword">null</span>;</div><div class="line">        List&lt;Map&lt;String,String&gt;&gt; table=<span class="keyword">new</span> ArrayList&lt;Map&lt;String,String&gt;&gt;();</div><div class="line">        Map&lt;String,String&gt; row=<span class="keyword">null</span>;</div><div class="line">        <span class="keyword">while</span>(m.find())&#123;</div><div class="line">            row=<span class="keyword">new</span> LinkedHashMap&lt;String,String&gt;();</div><div class="line">            province=m.group(<span class="string">"province"</span>);</div><div class="line">            row.put(<span class="string">"province"</span>, province==<span class="keyword">null</span>?<span class="string">""</span>:province.trim());</div><div class="line">            city=m.group(<span class="string">"city"</span>);</div><div class="line">            row.put(<span class="string">"city"</span>, city==<span class="keyword">null</span>?<span class="string">""</span>:city.trim());</div><div class="line">            county=m.group(<span class="string">"county"</span>);</div><div class="line">            row.put(<span class="string">"county"</span>, county==<span class="keyword">null</span>?<span class="string">""</span>:county.trim());</div><div class="line">            town=m.group(<span class="string">"town"</span>);</div><div class="line">            row.put(<span class="string">"town"</span>, town==<span class="keyword">null</span>?<span class="string">""</span>:town.trim());</div><div class="line">            village=m.group(<span class="string">"village"</span>);</div><div class="line">            row.put(<span class="string">"village"</span>, village==<span class="keyword">null</span>?<span class="string">""</span>:village.trim());</div><div class="line">            table.add(row);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> table;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>参考链接：<a href="http://bbs.csdn.net/topics/392309227" target="_blank" rel="external">http://bbs.csdn.net/topics/392309227</a></p>
+<h3 id="小编对工具类的使用案例——划分省市区并将其存放到对象中"><a href="#小编对工具类的使用案例——划分省市区并将其存放到对象中" class="headerlink" title="小编对工具类的使用案例——划分省市区并将其存放到对象中"></a>小编对工具类的使用案例——划分省市区并将其存放到对象中</h3><h4 id="实体类"><a href="#实体类" class="headerlink" title="实体类"></a>实体类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@description</span>:地域信息实体类，主要包含 省市区(县)</div><div class="line"> */</div><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="meta">@Table</span>(name = <span class="string">"T_AREA"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Area</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Id</span></div><div class="line">	<span class="meta">@Column</span>(name = <span class="string">"C_ID"</span>)</div><div class="line">	<span class="keyword">private</span> String id; <span class="comment">// 区域编号</span></div><div class="line">	<span class="meta">@Column</span>(name = <span class="string">"C_PROVINCE"</span>)</div><div class="line">	<span class="keyword">private</span> String province; <span class="comment">// 省</span></div><div class="line">	<span class="meta">@Column</span>(name = <span class="string">"C_CITY"</span>)</div><div class="line">	<span class="keyword">private</span> String city; <span class="comment">// 城市</span></div><div class="line">	<span class="meta">@Column</span>(name = <span class="string">"C_DISTRICT"</span>)</div><div class="line">	<span class="keyword">private</span> String district; <span class="comment">// 区域</span></div><div class="line">	<span class="meta">@Column</span>(name = <span class="string">"C_POSTCODE"</span>)</div><div class="line">	<span class="keyword">private</span> String postcode; <span class="comment">// 邮编</span></div><div class="line">	<span class="meta">@Column</span>(name = <span class="string">"C_CITYCODE"</span>)</div><div class="line">	<span class="keyword">private</span> String citycode; <span class="comment">// 城市编码</span></div><div class="line">	<span class="meta">@Column</span>(name = <span class="string">"C_SHORTCODE"</span>)</div><div class="line">	<span class="keyword">private</span> String shortcode; <span class="comment">// 简码</span></div><div class="line"></div><div class="line">	<span class="meta">@OneToMany</span>(mappedBy = <span class="string">"area"</span>)</div><div class="line">	<span class="keyword">private</span> Set&lt;SubArea&gt; subareas = <span class="keyword">new</span> HashSet&lt;SubArea&gt;();</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getProvince</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> province;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setProvince</span><span class="params">(String province)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.province = province;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getCity</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> city;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCity</span><span class="params">(String city)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.city = city;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getDistrict</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> district;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDistrict</span><span class="params">(String district)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.district = district;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getPostcode</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> postcode;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPostcode</span><span class="params">(String postcode)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.postcode = postcode;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getCitycode</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> citycode;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCitycode</span><span class="params">(String citycode)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.citycode = citycode;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getShortcode</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> shortcode;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setShortcode</span><span class="params">(String shortcode)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.shortcode = shortcode;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@JSON</span>(serialize=<span class="keyword">false</span>)</div><div class="line">	<span class="function"><span class="keyword">public</span> Set&lt;SubArea&gt; <span class="title">getSubareas</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> subareas;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSubareas</span><span class="params">(Set&lt;SubArea&gt; subareas)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.subareas = subareas;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"Area [id="</span> + id + <span class="string">", province="</span> + province + <span class="string">", city="</span> + city</div><div class="line">				+ <span class="string">", district="</span> + district + <span class="string">", postcode="</span> + postcode</div><div class="line">				+ <span class="string">", citycode="</span> + citycode + <span class="string">", shortcode="</span> + shortcode + <span class="string">"]"</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="具体使用案例"><a href="#具体使用案例" class="headerlink" title="具体使用案例"></a>具体使用案例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">public static void addressResolution(String address,Area area)&#123;</div><div class="line">        String regex=&quot;(?&lt;province&gt;[^省]+省|.+自治区)(?&lt;city&gt;[^市]+市|.+自治州)(?&lt;county&gt;[^县]+县|.+区)&quot;;</div><div class="line">        Matcher m=Pattern.compile(regex).matcher(address);</div><div class="line">        String province=null,city=null,county=null;</div><div class="line">        while(m.find())&#123;</div><div class="line">            //分别得到省市区字符串</div><div class="line">        	province=m.group(&quot;province&quot;);</div><div class="line">            area.setProvince(province==null?&quot;&quot;:province.trim());</div><div class="line">            city=m.group(&quot;city&quot;);</div><div class="line">            area.setCity(city==null?&quot;&quot;:city.trim());</div><div class="line">            county=m.group(&quot;county&quot;);</div><div class="line">            area.setDistrict(county==null?&quot;&quot;:county.trim());</div><div class="line"> 			//生成城市简码</div><div class="line">            province = province.substring(0, province.length()-1);</div><div class="line"> 			city = city.substring(0, city.length()-1);</div><div class="line"> 			county = county.substring(0, county.length()-1);</div><div class="line"> 			String[] headByString = PinYin4jUtils.getHeadByString(province+city+county);</div><div class="line"> 			StringBuffer buffer = new StringBuffer();</div><div class="line"> 			for(String head : headByString)&#123;</div><div class="line"> 				buffer.append(head);</div><div class="line"> 			&#125;</div><div class="line"> 			area.setShortcode(buffer.toString());</div><div class="line"> 			// 城市编码</div><div class="line"> 			String citycode = PinYin4jUtils.hanziToPinyin(city, &quot;&quot;);</div><div class="line"> 			area.setCitycode(citycode);</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>测试方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">areaTest</span><span class="params">()</span></span>&#123;</div><div class="line">			Area area = <span class="keyword">new</span> Area();</div><div class="line">			String sendAreaStr = <span class="string">"湖北省荆州市沙市区"</span>;</div><div class="line">			addressResolution(sendAreaStr,area);</div><div class="line">			System.out.println(area);</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
+<h2 id="double类型的数据转换为int型（不产生小数点）"><a href="#double类型的数据转换为int型（不产生小数点）" class="headerlink" title="double类型的数据转换为int型（不产生小数点）"></a>double类型的数据转换为int型（不产生小数点）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">double</span> d = <span class="number">155</span>;</div><div class="line"></div><div class="line">Integer.parseInt(<span class="keyword">new</span> java.text.DecimalFormat(<span class="string">"0"</span>).format(d)); <span class="comment">//155</span></div></pre></td></tr></table></figure>
+<h2 id="double类型的数据转换为String类型（不产生小数点）"><a href="#double类型的数据转换为String类型（不产生小数点）" class="headerlink" title="double类型的数据转换为String类型（不产生小数点）"></a>double类型的数据转换为String类型（不产生小数点）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">double</span> d = <span class="number">155</span>;</div><div class="line"></div><div class="line">String.valueOf(<span class="keyword">new</span> java.text.DecimalFormat(<span class="string">"0"</span>).format(d)); <span class="comment">//155</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>, <a class="article-category-link" href="/categories/tech/Java/">Java</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTYxNi82MTg0">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/27/tech/funnyThings/从硬盘复制到MyEclipse的配置文件没有发生修改/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">解决从硬盘复制配置文件到MyEclipse工作空间未发生修改</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JoinColumn-详解"><span class="nav-number">1.</span> <span class="nav-text">@JoinColumn 详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JPA之-GeneratedValue注解"><span class="nav-number">2.</span> <span class="nav-text">JPA之@GeneratedValue注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具类——划分地址字符串中的省市区县村"><span class="nav-number">3.</span> <span class="nav-text">工具类——划分地址字符串中的省市区县村</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#小编对工具类的使用案例——划分省市区并将其存放到对象中"><span class="nav-number">3.1.</span> <span class="nav-text">小编对工具类的使用案例——划分省市区并将其存放到对象中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实体类"><span class="nav-number">3.1.1.</span> <span class="nav-text">实体类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体使用案例"><span class="nav-number">3.1.2.</span> <span class="nav-text">具体使用案例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#double类型的数据转换为int型（不产生小数点）"><span class="nav-number">4.</span> <span class="nav-text">double类型的数据转换为int型（不产生小数点）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#double类型的数据转换为String类型（不产生小数点）"><span class="nav-number">5.</span> <span class="nav-text">double类型的数据转换为String类型（不产生小数点）</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2018 Welcome to my sweet world All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+
+
+  </div>
+
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/Categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+
+
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/love.js" async=""></script>
+  <!-- 背景动画 -->
+  <script type="text/javascript" src="/js/particle.js" ></script>
+
+</body>
+</html>
