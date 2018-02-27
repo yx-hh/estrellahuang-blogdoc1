@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>在linux中安装tomcat-jdk-solr-zookeeper及集群部署 | Welcome to my sweet world</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="JavaLinux" />
+  
+  
+  
+  
+  <meta name="description" content="1.修改虚拟机的IP地址a.查看虚拟机中系统当前IP地址
+1ifconfig
+b.输入如下命令行，进入网卡的文件保存地址
+1vim /etc/sysconfig/network-scripts/ifcfg-eth0
+c.进入网络配置文件
+1ONBOOT=yes   ---表示自动连接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在linux中安装tomcat-jdk-solr-zookeeper及集群部署">
+<meta property="og:url" content="http://yoursite.com/2018/02/27/tech/funnyThings/在linux中安装tomcat-jdk-solr-zookeeper/index.html">
+<meta property="og:site_name" content="Welcome to my sweet world">
+<meta property="og:description" content="1.修改虚拟机的IP地址a.查看虚拟机中系统当前IP地址
+1ifconfig
+b.输入如下命令行，进入网卡的文件保存地址
+1vim /etc/sysconfig/network-scripts/ifcfg-eth0
+c.进入网络配置文件
+1ONBOOT=yes   ---表示自动连接">
+<meta property="og:image" content="http://og0mzfnbv.bkt.clouddn.com/centosGateway.png">
+<meta property="og:image" content="http://og0mzfnbv.bkt.clouddn.com/xftpUse.png">
+<meta property="og:image" content="http://og0mzfnbv.bkt.clouddn.com/tomcatcmd.png">
+<meta property="og:image" content="http://og0mzfnbv.bkt.clouddn.com/solrPackage.png">
+<meta property="og:image" content="http://og0mzfnbv.bkt.clouddn.com/solrPage.png">
+<meta property="og:image" content="http://og0mzfnbv.bkt.clouddn.com/lostNetworkCard.png">
+<meta property="og:image" content="http://og0mzfnbv.bkt.clouddn.com/normalNetworkCard.png">
+<meta property="og:updated_time" content="2018-02-27T13:57:53.400Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在linux中安装tomcat-jdk-solr-zookeeper及集群部署">
+<meta name="twitter:description" content="1.修改虚拟机的IP地址a.查看虚拟机中系统当前IP地址
+1ifconfig
+b.输入如下命令行，进入网卡的文件保存地址
+1vim /etc/sysconfig/network-scripts/ifcfg-eth0
+c.进入网络配置文件
+1ONBOOT=yes   ---表示自动连接">
+<meta name="twitter:image" content="http://og0mzfnbv.bkt.clouddn.com/centosGateway.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Welcome to my sweet world" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+</head>
+
+<a href="https://github.com/estrellahuang"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "Home"; 
+
+  themeMenus["/archives"] = "Archives"; 
+
+  themeMenus["/Categories"] = "Categories"; 
+
+  themeMenus["/tags"] = "Tags"; 
+
+  themeMenus["/about"] = "About"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="Welcome to my sweet world" rel="home"> Welcome to my sweet world </a>
+            
+          </h1>
+
+          
+            <div class="site-description">Preparedness ensures success, unpreparedness spells failure.</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/Categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+
+
+  <div id="container">
+    <div id="wrap">
+
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-tech/funnyThings/在linux中安装tomcat-jdk-solr-zookeeper" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      在linux中安装tomcat-jdk-solr-zookeeper及集群部署
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2018/02/27/tech/funnyThings/在linux中安装tomcat-jdk-solr-zookeeper/" class="article-date">
+	  <time datetime="2018-02-26T16:00:00.000Z" itemprop="datePublished">February 27, 2018</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-修改虚拟机的IP地址"><a href="#1-修改虚拟机的IP地址" class="headerlink" title="1.修改虚拟机的IP地址"></a>1.修改虚拟机的IP地址</h2><p>a.查看虚拟机中系统当前IP地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ifconfig</div></pre></td></tr></table></figure>
+<p>b.输入如下命令行，进入网卡的文件保存地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/network-scripts/ifcfg-eth0</div></pre></td></tr></table></figure>
+<p>c.进入网络配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ONBOOT=yes   ---表示自动连接</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>修改<code>BOOTPROTO</code>字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BOOTPROTO=dhcp ---用于下发ip的服务器，将此改为none，不让它自动分配ip</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BOOTPROTO=none</div></pre></td></tr></table></figure>
+<p>增减字段（用于指派ip）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">IPADDR=192.168.206.101   ---IP地址</div><div class="line">NETMask=255.255.255.0    ---子网掩码</div><div class="line">GATEWAY=192.168.206.2   ---网关，此处填写和虚拟网络编辑器中相同的网关，查看方式如下</div><div class="line">DNS=114.114.114.114     --- 此处为通用域名，你可以填写自己的专供域名。DNS作用：将域名转换为ip</div></pre></td></tr></table></figure>
+<p>d.保存文件<code>:wq</code></p>
+<p>e.重启网络</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service network restart</div></pre></td></tr></table></figure>
+<p>f.附加：网关地址查看方式：</p>
+<p>在<code>导航栏</code>中选中<code>编辑</code>，选择<code>虚拟网络编辑器</code>，按如下图所示点击<code>NAT设置</code>即可查看</p>
+<p><img src="http://og0mzfnbv.bkt.clouddn.com/centosGateway.png" alt=""></p>
+<h2 id="2-安装JDK"><a href="#2-安装JDK" class="headerlink" title="2.安装JDK"></a>2.安装JDK</h2><h3 id="1-上传安装包"><a href="#1-上传安装包" class="headerlink" title="1) 上传安装包"></a>1) 上传安装包</h3><p>安装远程连接工具Xshell 5和Xftp 5，建立连接后，使用Xshell 5窗口输入命令，输入命令的效果与虚拟机中的黑窗口相同但是支持复制，粘贴，删除整行等功能，使用起来更方便；使用Xftp 5上传JDK（Linux版）到CentOS中。</p>
+<p>参考安装目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd /usr/local  --进入usr下的local目录</div><div class="line">mkdir myapp	   --在local中创建一个叫myapp的文件夹</div><div class="line">cd myapp	   --进入myapp</div><div class="line">pwd			   --打印myapp的路径，复制该路径，一会使用Xftp上传jdk会使用到</div></pre></td></tr></table></figure>
+<p>将myapp在CentOS中的路径粘贴到Xftp的liunx目录中，如下图：</p>
+<p><img src="http://og0mzfnbv.bkt.clouddn.com/xftpUse.png" alt=""></p>
+<p>然后在window的本地磁盘中找到要安装的linux系统安装包，<code>双击</code>即可自动上传到右边的linux系统中。</p>
+<h3 id="2-解压JDK安装包并配置环境变量"><a href="#2-解压JDK安装包并配置环境变量" class="headerlink" title="2) 解压JDK安装包并配置环境变量"></a>2) 解压JDK安装包并配置环境变量</h3><h4 id="a-解压文件夹"><a href="#a-解压文件夹" class="headerlink" title="a.解压文件夹"></a>a.解压文件夹</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf jdk8(文件名，table键自动补全)</div></pre></td></tr></table></figure>
+<h4 id="b-删除文件夹"><a href="#b-删除文件夹" class="headerlink" title="b.删除文件夹"></a>b.删除文件夹</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf jdk8(文件名，table键自动补全)</div></pre></td></tr></table></figure>
+<h4 id="c-删除整行"><a href="#c-删除整行" class="headerlink" title="c.删除整行"></a>c.删除整行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctrl+u</div></pre></td></tr></table></figure>
+<h4 id="d-配置JDK环境变量"><a href="#d-配置JDK环境变量" class="headerlink" title="d.配置JDK环境变量"></a>d.配置JDK环境变量</h4><p>方法一：命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd jdk8 --进入jdk的文件夹</div><div class="line">pwd  --获取jdk的路径，然后复制它</div><div class="line">vim /etc/profile --进入配置文件</div><div class="line">i -- 进入插入模式</div><div class="line">export JAVA_HOME=/usr/local/myapp/jdk1.8.0_65 --在文件尾加入这句话</div></pre></td></tr></table></figure>
+<p>方法二：命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">echo &quot;export JAVA_HOME=/usr/local/myapp/jdk1.8.0_65&quot; &gt;&gt; /etc/profile --将&quot;&quot;里面的话打印到指定的文件中</div><div class="line">source /etc/profile -- 重新加载profile文件</div><div class="line">echo $JAVA_HOME --打印环境变量JAVA_HOME到cmd窗口</div><div class="line">java -version  --验证是否安装成功</div><div class="line">echo &quot;export PATH=$PATH:$JAVA_HOME/bin&quot; &gt;&gt; /etc/profile --将&quot;&quot;里面的话打印到指定的文件中</div><div class="line">source /etc.profile -- 重新加载profile文件</div><div class="line">javac -version --验证是否配置成功</div><div class="line">-- 也可以用vim进入配置文件查看是否配置进去</div><div class="line">vim /etc/profile</div></pre></td></tr></table></figure>
+<h3 id="3-创建java文件-测试JDK是否能够使用"><a href="#3-创建java文件-测试JDK是否能够使用" class="headerlink" title="3) 创建java文件,测试JDK是否能够使用"></a>3) 创建java文件,测试JDK是否能够使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">cd /tmp          --进入tmp文件夹</div><div class="line">touch hello.java  --创建java文件</div><div class="line"></div><div class="line">vim hello.java	--进入文件</div><div class="line"></div><div class="line">i --开始插入数据，测试代码如下：</div><div class="line"></div><div class="line">public class Hello&#123;</div><div class="line">        public static void main(String args[])&#123;</div><div class="line"></div><div class="line">                System.out.println(&quot;Hello World!&quot;);</div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line">javac Hello.java --编译java文件</div><div class="line">java Hello  --运行java文件</div></pre></td></tr></table></figure>
+<h3 id="4-删除操作系统自带的JDK"><a href="#4-删除操作系统自带的JDK" class="headerlink" title="4) 删除操作系统自带的JDK"></a>4) 删除操作系统自带的JDK</h3><p>查看自带的JDK</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -qa|grep java</div></pre></td></tr></table></figure>
+<p>出现如下结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tzdata-java-2013g-1.el6.noarch</div><div class="line">java-1.7.0-openjdk-1.7.0.45-2.4.3.3.el6.x86_64</div><div class="line">java-1.6.0-openjdk-1.6.0.0-1.66.1.13.0.el6.x86_64</div></pre></td></tr></table></figure>
+<p>卸载自带的JDK</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">rpm -e --nodeps java-1.7.0-openjdk-1.7.0.45-2.4.3.3.el6.x86_64</div><div class="line">rpm -e --nodeps java-1.6.0-openjdk-1.6.0.0-1.66.1.13.0.el6.x86_64</div><div class="line">rpm -e --nodeps tzdata-java-2013g-1.el6.noarch</div></pre></td></tr></table></figure>
+<p>如果没有安装ORACLE JDK,也可在卸载后选择安装JDK，小编之前已经安装过了，所以不再演示安装JDK了。删除默认的JDK以后，自己安装的JDK才会显现出来。</p>
+<p>刷新配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source /etc/profile</div></pre></td></tr></table></figure>
+<p>查看java的版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">java -version  --jre的版本</div><div class="line">javac -version  --jdk的版本</div></pre></td></tr></table></figure>
+<h2 id="3-安装tomcat"><a href="#3-安装tomcat" class="headerlink" title="3.安装tomcat"></a>3.安装tomcat</h2><h3 id="1-解压安装包"><a href="#1-解压安装包" class="headerlink" title="1) 解压安装包"></a>1) 解压安装包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">tar -zxvf apache-tomcat-8.0.28.tar.gz  --解压文件</div><div class="line">rm -rf apache-tomcat-8.0.28.tar.gz     --删除压缩包</div><div class="line">ls        							   --查看myapp下的文件</div><div class="line">cd apache-tomcat-8.0.28                --进入tomcat的安装文件</div><div class="line">pwd 								   --打印该文件的路径如下，并复制</div><div class="line">-- /usr/local/myapp/apache-tomcat-8.0.28</div></pre></td></tr></table></figure>
+<h3 id="2-配置环境变量"><a href="#2-配置环境变量" class="headerlink" title="2) 配置环境变量"></a>2) 配置环境变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">echo &quot;export CATALINA_HOME=/usr/local/myapp/apache-tomcat-8.0.28&quot; &gt;&gt; /etc/profile</div><div class="line">source /etc/profile</div><div class="line">echo $CATALINA_HOME --配置环境变量</div><div class="line">cd $CATALINA_HOME --进入tomcat的安装路径</div><div class="line">cd bin  --进入tomcat的bin文件夹</div><div class="line">ls --列表文件</div><div class="line">sh startup.sh  --开始服务器</div><div class="line">sh shutdown.sh  -- 关闭服务器</div></pre></td></tr></table></figure>
+<p><img src="http://og0mzfnbv.bkt.clouddn.com/tomcatcmd.png" alt=""></p>
+<p>3) 带日志启动服务器</p>
+<p>通过在<code>bin</code>目录下使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh startup.sh &amp;&amp; tail -f ../logs/catalina.out</div></pre></td></tr></table></figure>
+<h2 id="4-关闭liunx的防火墙，便于访问liunx上部署的项目"><a href="#4-关闭liunx的防火墙，便于访问liunx上部署的项目" class="headerlink" title="4.关闭liunx的防火墙，便于访问liunx上部署的项目"></a>4.关闭liunx的防火墙，便于访问liunx上部署的项目</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">service iptables status --查看防火墙的状态</div><div class="line">service iptables stop  --关闭防火墙，但是下次开机时，防火墙会自动启动</div><div class="line">chkconfig iptables off --关闭防火墙开机自启动</div><div class="line">service  iptabels start --开启防火墙</div></pre></td></tr></table></figure>
+<h2 id="5-安装solr"><a href="#5-安装solr" class="headerlink" title="5.安装solr"></a>5.安装solr</h2><h3 id="1-解压安装包-1"><a href="#1-解压安装包-1" class="headerlink" title="1) 解压安装包"></a>1) 解压安装包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tar -zxvf solr-4.10.2.tgz      --解压solr的安装包，tgz是tar.gz的缩写</div><div class="line">rm -rf solr-4.10.2.tgz    --删除压缩包</div></pre></td></tr></table></figure>
+<h3 id="2-配置系统变量"><a href="#2-配置系统变量" class="headerlink" title="2)配置系统变量"></a>2)配置系统变量</h3><h4 id="a-关闭tomcat服务器"><a href="#a-关闭tomcat服务器" class="headerlink" title="a.关闭tomcat服务器"></a>a.关闭tomcat服务器</h4><p>注意要在tomcat服务器关闭的情况下复制压缩包，tomcat开启时复制会自动解压，这样可能会出现一些问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">进入到tomcat的bin目录下</div><div class="line">cd $CATALINA_HOME/bin</div><div class="line">sh shutdown.sh tail -f ../logs/catalina.out</div></pre></td></tr></table></figure>
+<h4 id="b-复制solr的压缩包到tomcat服务器的webapps中"><a href="#b-复制solr的压缩包到tomcat服务器的webapps中" class="headerlink" title="b.复制solr的压缩包到tomcat服务器的webapps中"></a>b.复制solr的压缩包到tomcat服务器的webapps中</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /solr-4.10.2/example/webapps      --进入到solr的example下的webapps里面,里面有一个solr.war的压缩包</div><div class="line">cp solr.war $CATALINA_HOME/webapps   --将solr.war复制到tomcat服务器的webapps里面，</div></pre></td></tr></table></figure>
+<p>写完上面的复制命令后<code>按table键</code>会自动变成<code>如下路径</code>(上面命令的环境变量的部分，也可以写全路径，和下面的是一样的效果)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp solr.war /usr/local/myapp/apache-tomcat-8.0.28/webapps/</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd $CATALINA_HOME/webapps/    --进入到tomcat的webapps中查看刚刚复制进来solr包</div><div class="line">ls							  --展示当前文件夹中的文件</div><div class="line">unzip -oq solr.war -d solr    --解压solr的包并给这个包命名为solr</div><div class="line">rm -rf solr.war               --删除压缩包</div></pre></td></tr></table></figure>
+<h4 id="c-配置solr运行所需要的jar包"><a href="#c-配置solr运行所需要的jar包" class="headerlink" title="c.配置solr运行所需要的jar包"></a>c.配置solr运行所需要的jar包</h4><p>solr在tomcat上运行所需要的jar包，如下图：</p>
+<p><img src="http://og0mzfnbv.bkt.clouddn.com/solrPackage.png" alt=""></p>
+<p>通过xftp传递到如下目录中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd $CATALINA_HOME/webapps/solr/WEB-INF/lib	--进入到tomcat中solr下的lib中</div><div class="line">pwd   --打印路径，结果如下，然后将路径复制粘贴到xftp中</div><div class="line">/usr/local/myapp/apache-tomcat-8.0.28/webapps/solr/WEB-INF/lib</div></pre></td></tr></table></figure>
+<p>将上述地址粘贴到xftp窗口中Linux系统所在的地址栏，然后将事先准备好的上述jar包右键点击传输到lib下面。</p>
+<p>同时将日志配置文件放到WEB-INF下面，在Linux系统中新建一个classes目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir classes</div></pre></td></tr></table></figure>
+<p>然后将<code>log4j.properties</code>这个日志文件传输到classes目录下，这样就可以在tomcat启动的时候看到solr相关的信息了。</p>
+<h4 id="d-添加tomcat启动的参数"><a href="#d-添加tomcat启动的参数" class="headerlink" title="d.添加tomcat启动的参数"></a>d.添加tomcat启动的参数</h4><p>修改tomcat的bin目录下的catalina.sh文件，添加启动的参数，指向solr的索引文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd $CATALINA_HOME/bin  --进入tomcat服务器的bin目录下</div><div class="line">vim catalina.sh		   --编辑服务器的启动文件</div><div class="line">添加如下命令：</div><div class="line">export JAVA_OPTS=&quot;-Dsolr.solr.home=/usr/local/myapp/solr-4.10.2/example/solr&quot;</div></pre></td></tr></table></figure>
+<p>保存退出，按<code>Esc键</code>，然后输入<code>:wq!</code></p>
+<h3 id="3-重启服务器"><a href="#3-重启服务器" class="headerlink" title="3)重启服务器"></a>3)重启服务器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh startup.sh &amp;&amp; tail -f ../logs/catalina.out</div></pre></td></tr></table></figure>
+<p>可在日志中看到部署solr的信息。</p>
+<p>在浏览器端访问服务器<code>192.168.206.101:8080/solr</code>出现如下页面即成功：</p>
+<p><img src="http://og0mzfnbv.bkt.clouddn.com/solrPage.png" alt=""></p>
+<h2 id="6-安装zookeeper"><a href="#6-安装zookeeper" class="headerlink" title="6.安装zookeeper"></a>6.安装zookeeper</h2><h3 id="1-解压安装包并重命名"><a href="#1-解压安装包并重命名" class="headerlink" title="1)  解压安装包并重命名"></a>1)  解压安装包并重命名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tar -zxvf zookeeper-3.4.5.tar.gz    --解压zookeeper的压缩包</div><div class="line">rm -rf zookeeper-3.4.5.tar.gz		--删除压缩包</div><div class="line">mv zookeeper-3.4.5.tar.gz zookeeper --将文件重命名为zookeeper</div></pre></td></tr></table></figure>
+<h3 id="2-修改配置文件"><a href="#2-修改配置文件" class="headerlink" title="2) 修改配置文件"></a>2) 修改配置文件</h3><p>进入zookeeper,找到conf，然后复制一份zoo_sample.cfg并重命名为zoo.cfg</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /zookeeper/conf</div><div class="line">cp  cp zoo_sample.cfg zoo.cfg</div><div class="line">vim zoo.cfg</div></pre></td></tr></table></figure>
+<p>注掉：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dataDir=/tmp/zookeeper</div></pre></td></tr></table></figure>
+<p>添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dataDir=/usr/local/myapp/zookeeper/data</div><div class="line">dataLogDir=/usr/local/myapp/zookeeper/log</div><div class="line">server.1=192.168.206.101:2888:3888</div><div class="line">server.2=192.168.206.102:2888:3888</div><div class="line">server.3=192.168.206.103:2888:3888</div></pre></td></tr></table></figure>
+<p>保存并退出。</p>
+<hr>
+<p>dataDir：数据目录</p>
+<p>dataLogDir：日志目录</p>
+<p>server.1=x.x.x.x:port1:port2 指定所有zookeeper的节点信息</p>
+<p>server后的数字是节点ID，port1是心跳端口，port2是数据端口</p>
+<hr>
+<h3 id="3-创建数据目录和日志目录"><a href="#3-创建数据目录和日志目录" class="headerlink" title="3) 创建数据目录和日志目录"></a>3) 创建数据目录和日志目录</h3><p>我们在配置文件里指定了数据和日志目录。所以我们需要创建这些目录</p>
+<p>​    A：先进入zookeeper目录</p>
+<p>​    B：创建目录data和log</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir data</div><div class="line">mkdir log</div></pre></td></tr></table></figure>
+<p>添加节点ID信息：</p>
+<p>进入data目录，创建文件myid，并且写上ID信息：1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd data</div><div class="line">vim myid</div><div class="line">按键盘的i，写入1</div><div class="line">保存并推出</div><div class="line">按键盘的Esc然后:wq!</div></pre></td></tr></table></figure>
+<h3 id="4-配置环境变量"><a href="#4-配置环境变量" class="headerlink" title="4) 配置环境变量"></a>4) 配置环境变量</h3><p>配置zookeeper的环境变量，使其可以在任何位置使用zookeeper命令</p>
+<h4 id="a-修改文件"><a href="#a-修改文件" class="headerlink" title="a.修改文件"></a>a.修改文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/profile</div></pre></td></tr></table></figure>
+<h4 id="b-添加内容"><a href="#b-添加内容" class="headerlink" title="b.添加内容"></a>b.添加内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export ZOOKEEPER_HOME=/usr/local/myapp/zookeeper</div><div class="line">export PATH=$PATH:$ZOOKEEPER_HOME/bin</div></pre></td></tr></table></figure>
+<h4 id="c-重新编译文件"><a href="#c-重新编译文件" class="headerlink" title="c.重新编译文件"></a>c.重新编译文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source /etc/profile</div></pre></td></tr></table></figure>
+<h3 id="5-zookeeper命令"><a href="#5-zookeeper命令" class="headerlink" title="5) zookeeper命令"></a>5) zookeeper命令</h3><p>启动zookeeper：   zkServer.sh start</p>
+<p>停止zookeeper：   zkServer.sh stop</p>
+<p>查看状态：         zkServer.sh status</p>
+<h3 id="6）如果出现错误"><a href="#6）如果出现错误" class="headerlink" title="6）如果出现错误"></a>6）如果出现错误</h3><p>先stop 掉原zk</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zkServer.sh stop</div></pre></td></tr></table></figure>
+<p>然后以./zkServer.sh start-foreground方式启动，会看到启动日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zkServer.sh start-foreground</div></pre></td></tr></table></figure>
+<h2 id="7-集群部署"><a href="#7-集群部署" class="headerlink" title="7.集群部署"></a>7.集群部署</h2><h3 id="1-修改tomcat启动文件，添加zookeeper的地址信息"><a href="#1-修改tomcat启动文件，添加zookeeper的地址信息" class="headerlink" title="1) 修改tomcat启动文件，添加zookeeper的地址信息"></a>1) 修改tomcat启动文件，添加zookeeper的地址信息</h3><p>修改：tomcat文件夹下的bin目录中的catalina.sh文件，添加以下信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export JAVA_OPTS=&quot;-Dsolr.solr.home=/usr/local/myapp/solr-4.10.2/example/solr</div><div class="line">-DzkHost=192.168.206.101:2181,192.168.206.102:2181,192.168.206.103:2181&quot;</div></pre></td></tr></table></figure>
+<p>-Dsolr.solr.solr.home指定的是Solr索引库位置；</p>
+<p>-DzkHost指定的是三个zookeeper的ip和客户端端口信息；</p>
+<p>这样tomcat启动后，solr服务就可以到zookeeper中注册自己的信息，或者获取其它节点信息。</p>
+<h3 id="2-在VMware中复制虚拟机并修改网络配置"><a href="#2-在VMware中复制虚拟机并修改网络配置" class="headerlink" title="2) 在VMware中复制虚拟机并修改网络配置"></a>2) 在VMware中复制虚拟机并修改网络配置</h3><p>将CentOS01关机，即在命令窗口输入<code>poweroff</code>。</p>
+<p>在VMware中<code>选中CentOS01</code>然后<code>右键</code>，<code>管理</code>选中<code>克隆</code>，在弹出的窗口中选择下一步，克隆自选<code>虚拟机中的当前状态(C)</code>.然后下一步，克隆方法选：<code>创建链接克隆(L)</code>，然后下一步，将虚拟机名称和位置改为你想要的，最后点完成。</p>
+<p>按照上述方法复制两个即可！</p>
+<h4 id="a-查看网卡"><a href="#a-查看网卡" class="headerlink" title="a) 查看网卡"></a>a) 查看网卡</h4><p>启动克隆的虚拟机，账户和密码与原虚拟机相同，然后输入如下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ifconfig</div></pre></td></tr></table></figure>
+<p>出现如图：</p>
+<p><img src="http://og0mzfnbv.bkt.clouddn.com/lostNetworkCard.png" alt=""></p>
+<p>但是在ip为192.168.206.101的虚拟机中有两张网卡，所以现在存在一个问题，复制过来的虚拟机缺少了一张网卡。</p>
+<p><img src="http://og0mzfnbv.bkt.clouddn.com/normalNetworkCard.png" alt=""></p>
+<h4 id="b-生成MAC地址"><a href="#b-生成MAC地址" class="headerlink" title="b)生成MAC地址"></a>b)生成MAC地址</h4><p>由于克隆的虚拟机的mac地址也相同，所以看不到101所在的网卡th0，在这里，我们要重新生成一个mac地址：</p>
+<p>选中CentOS02然后在设备里面选<code>网络适配器</code>，选中<code>高级</code>，然后重新生成一个<code>MAC地址</code>，将生成的地址复制粘贴到一个txt文件中，接下来会把这个MAC地址复制到系统的配置文件中。</p>
+<h4 id="c-修改相应虚拟机的网卡配置文件"><a href="#c-修改相应虚拟机的网卡配置文件" class="headerlink" title="c) 修改相应虚拟机的网卡配置文件"></a>c) 修改相应虚拟机的网卡配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/network-scripts/ifcfg-eth0</div></pre></td></tr></table></figure>
+<p>按i，进入后找到HWADDR,这个就是mac地址，将其地址改为刚刚上面生成的MAC地址</p>
+<p>修改ip地址为：192.168.206.102</p>
+<h4 id="d-删除原有的网络规则列表"><a href="#d-删除原有的网络规则列表" class="headerlink" title="d) 删除原有的网络规则列表"></a>d) 删除原有的网络规则列表</h4><p>切记要删除，因为原有的规则列表是按照原有的MAC地址来生成的，现在有了新的MAC地址，应该将旧的列表删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm －rf/etc/udev/rules.d/70-persistent-net.rules</div></pre></td></tr></table></figure>
+<p>与此相似，修改其他的虚拟机！</p>
+<h3 id="3-启动zookeeper集群"><a href="#3-启动zookeeper集群" class="headerlink" title="3) 启动zookeeper集群"></a>3) 启动zookeeper集群</h3><h4 id="a-修改102和103机器中的zookeeper的节点ID"><a href="#a-修改102和103机器中的zookeeper的节点ID" class="headerlink" title="a) 修改102和103机器中的zookeeper的节点ID"></a>a) 修改102和103机器中的zookeeper的节点ID</h4><p>修改zookeeper目录中 data/myid的内容，分别为2和3</p>
+<h4 id="b-分别启动三台虚拟机中的zookeeper"><a href="#b-分别启动三台虚拟机中的zookeeper" class="headerlink" title="b) 分别启动三台虚拟机中的zookeeper"></a>b) 分别启动三台虚拟机中的zookeeper</h4><p>zkServer.sh start</p>
+<p>查看状态:</p>
+<p>zkServer.sh status(集群选主没完成之前一概看不到状态，选主完成后新机器加入后需要一个心跳周期才能开到自己的状态)</p>
+<p>注意zookeeper集群全部启动，但查看状态出现异常，请检查防火墙，是否已经关闭，或者对应的端口是否放开(2181,2888,3888)</p>
+<p>有个值得注意的点，集群分为全新集群和非全新集群！全新集群选主，id大的为主；非全新集群，数据最新的为主。</p>
+<p>停止:  zkServer.sh stop</p>
+<h4 id="c-使用zookeeper的客户端控制台，查看zookeeper信息"><a href="#c-使用zookeeper的客户端控制台，查看zookeeper信息" class="headerlink" title="c) 使用zookeeper的客户端控制台，查看zookeeper信息"></a>c) 使用zookeeper的客户端控制台，查看zookeeper信息</h4><p>Zookeeper提供了自己的客户端命令行工具，与Linux的命令非常相似。</p>
+<p>A：启动客户端工具：</p>
+<p>注：zkCli.sh 连接zookeeper的时候，如果zookeeper是集群则需要指明集群的leader，如果连接单机zooKeeper，则无需设置，只需要连接自己就行</p>
+<p>​    zkCli.sh –server ip:port</p>
+<p>​    这里的参数可以省略，如果省略，默认访问的是本机的zookeeper节点即：localhost:2181</p>
+<p>B：显示根目录下、文件： ls / 使用 ls 命令来查看当前ZooKeeper 中所包含的内容</p>
+<p>C：显示根目录下、文件： ls2 / 查看当前节点数据并能看到更新次数等数据</p>
+<p>D：创建文件，并设置初始内容： create /zk”test” 创建一个新的 znode节点“ zk ”以及与它关联的字符串</p>
+<p>E：获取文件内容： get /zk 确认 znode 是否包含我们所创建的字符串</p>
+<p>F：修改文件内容： set /zk”zkbak” 对 zk 所关联的字符串进行设置</p>
+<p>G：删除文件： delete /zk 将刚才创建的 znode 删除</p>
+<p>H：退出客户端： quit</p>
+<p>I：帮助命令： help</p>
+<h3 id="4-修改Solr配置文件-配置集群的中每台Solr服务的IP和端口"><a href="#4-修改Solr配置文件-配置集群的中每台Solr服务的IP和端口" class="headerlink" title="4) 修改Solr配置文件,配置集群的中每台Solr服务的IP和端口"></a>4) 修改Solr配置文件,配置集群的中每台Solr服务的IP和端口</h3><p>a) 进入/usr/local/myapp/solr-4.10.2/example/solr目录</p>
+<p>b) 修改solr.xml文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;solrcloud&gt;</div><div class="line">&lt;str name=&quot;host&quot;&gt;192.168.206.101&lt;/str&gt;</div><div class="line">&lt;int name=&quot;hostPort&quot;&gt;8080&lt;/int&gt;</div><div class="line">&lt;strname=&quot;hostContext&quot;&gt;$&#123;hostContext:solr&#125;&lt;/str&gt;</div><div class="line">&lt;intname=&quot;zkClientTimeout&quot;&gt;$&#123;zkClientTimeout:30000&#125;&lt;/int&gt;</div><div class="line">&lt;boolname=&quot;genericCoreNodeNames&quot;&gt;$&#123;genericCoreNodeNames:true&#125;&lt;/bool&gt;</div><div class="line">&lt;/solrcloud&gt;</div></pre></td></tr></table></figure>
+<p>我们访问一台Solr服务的地址，一般是这样的：<a href="http://192.168.206.101:8080/solr" target="_blank" rel="external">http://192.168.206.101:8080/solr</a></p>
+<p>而在这里的几个参数，分别对应这个地址的一些信息：</p>
+<p>host：就是Solr服务的IP地址，每台机器配置为自己的IP</p>
+<p>hostPort：就是监听端口，我们是Tomcat服务，因此是8080</p>
+<p>hostContext：就是访问的路径，这里缺省值是solr，我们不用改</p>
+<h3 id="5-将Solr配置文件上传到Zookeeper"><a href="#5-将Solr配置文件上传到Zookeeper" class="headerlink" title="5) 将Solr配置文件上传到Zookeeper"></a>5) 将Solr配置文件上传到Zookeeper</h3><p>由于zookeeper统一管理solr的配置文件（主要是schema.xml、solrconfig.xml）， solrCloud的各节点使用zookeeper来管理配置文件。以后无论创建任何的core，本地的配置文件都没用了，使用的都是zookeeper的配置文件</p>
+<p>执行下边的命令将/usr/local/myapp/solr-4.10.2/example/solr/collection1/conf/下的配置文件上传到zookeeper：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh /usr/local/myapp/solr-4.10.2/example/scripts/cloud-scripts/zkcli.sh -zkhost 192.168.206.101:2181,192.168.206.102:2181,192.168.206.103:2181 -cmd upconfig -confdir /usr/local/myapp/solr-4.10.2/example/solr/collection1/conf/ -confname solrconf</div></pre></td></tr></table></figure>
+<p>解释：</p>
+<p>/usr/local/myapp/solr-4.10.2/example/scripts/cloud-scripts/zkcli.sh ：  Solr提供的访问Zookeeper的脚本文件；</p>
+<p>-zkhost 192.168.206.101:2181,192.168.206.102:2181,192.168.206.103:2181：   指定Zookeeper的地址信息，要求zookeeper必须开启才能上传；</p>
+<p>-cmd upconfig： 指定操作的命令，这里是上传配置；</p>
+<p>-confdir /usr/local/myapp/solr-4.10.2/example/solr/collection1/conf/ ：指定要上传的配置文件目录，我们上传Solr的样例中的配置</p>
+<p>-confname solrconf ：指定注册到Zookeeper中后配置文件目录名称</p>
+<h3 id="6-启动SolrCloud"><a href="#6-启动SolrCloud" class="headerlink" title="6) 启动SolrCloud"></a>6) 启动SolrCloud</h3><p>1、启动每一台服务器中的Solr服务（其实就是启动Tomcat）</p>
+<p>2、在浏览器端访问SolrCloud，即可查看到云状态。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>, <a class="article-category-link" href="/categories/tech/Linux/">Linux</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTYxNi82MTg0">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/19/tech/funnyThings/Validation Failed no requests added/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">解决用elasticsearch索引同步数据库时org.elasticsearch.action.ActionRequestValidationException Validation Failed 1 no requests added</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-修改虚拟机的IP地址"><span class="nav-number">1.</span> <span class="nav-text">1.修改虚拟机的IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装JDK"><span class="nav-number">2.</span> <span class="nav-text">2.安装JDK</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-上传安装包"><span class="nav-number">2.1.</span> <span class="nav-text">1) 上传安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-解压JDK安装包并配置环境变量"><span class="nav-number">2.2.</span> <span class="nav-text">2) 解压JDK安装包并配置环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-解压文件夹"><span class="nav-number">2.2.1.</span> <span class="nav-text">a.解压文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-删除文件夹"><span class="nav-number">2.2.2.</span> <span class="nav-text">b.删除文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c-删除整行"><span class="nav-number">2.2.3.</span> <span class="nav-text">c.删除整行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-配置JDK环境变量"><span class="nav-number">2.2.4.</span> <span class="nav-text">d.配置JDK环境变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-创建java文件-测试JDK是否能够使用"><span class="nav-number">2.3.</span> <span class="nav-text">3) 创建java文件,测试JDK是否能够使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-删除操作系统自带的JDK"><span class="nav-number">2.4.</span> <span class="nav-text">4) 删除操作系统自带的JDK</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-安装tomcat"><span class="nav-number">3.</span> <span class="nav-text">3.安装tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-解压安装包"><span class="nav-number">3.1.</span> <span class="nav-text">1) 解压安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-配置环境变量"><span class="nav-number">3.2.</span> <span class="nav-text">2) 配置环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-关闭liunx的防火墙，便于访问liunx上部署的项目"><span class="nav-number">4.</span> <span class="nav-text">4.关闭liunx的防火墙，便于访问liunx上部署的项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-安装solr"><span class="nav-number">5.</span> <span class="nav-text">5.安装solr</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-解压安装包-1"><span class="nav-number">5.1.</span> <span class="nav-text">1) 解压安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-配置系统变量"><span class="nav-number">5.2.</span> <span class="nav-text">2)配置系统变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-关闭tomcat服务器"><span class="nav-number">5.2.1.</span> <span class="nav-text">a.关闭tomcat服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-复制solr的压缩包到tomcat服务器的webapps中"><span class="nav-number">5.2.2.</span> <span class="nav-text">b.复制solr的压缩包到tomcat服务器的webapps中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c-配置solr运行所需要的jar包"><span class="nav-number">5.2.3.</span> <span class="nav-text">c.配置solr运行所需要的jar包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-添加tomcat启动的参数"><span class="nav-number">5.2.4.</span> <span class="nav-text">d.添加tomcat启动的参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-重启服务器"><span class="nav-number">5.3.</span> <span class="nav-text">3)重启服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-安装zookeeper"><span class="nav-number">6.</span> <span class="nav-text">6.安装zookeeper</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-解压安装包并重命名"><span class="nav-number">6.1.</span> <span class="nav-text">1)  解压安装包并重命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-修改配置文件"><span class="nav-number">6.2.</span> <span class="nav-text">2) 修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-创建数据目录和日志目录"><span class="nav-number">6.3.</span> <span class="nav-text">3) 创建数据目录和日志目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-配置环境变量"><span class="nav-number">6.4.</span> <span class="nav-text">4) 配置环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-修改文件"><span class="nav-number">6.4.1.</span> <span class="nav-text">a.修改文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-添加内容"><span class="nav-number">6.4.2.</span> <span class="nav-text">b.添加内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c-重新编译文件"><span class="nav-number">6.4.3.</span> <span class="nav-text">c.重新编译文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-zookeeper命令"><span class="nav-number">6.5.</span> <span class="nav-text">5) zookeeper命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6）如果出现错误"><span class="nav-number">6.6.</span> <span class="nav-text">6）如果出现错误</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-集群部署"><span class="nav-number">7.</span> <span class="nav-text">7.集群部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-修改tomcat启动文件，添加zookeeper的地址信息"><span class="nav-number">7.1.</span> <span class="nav-text">1) 修改tomcat启动文件，添加zookeeper的地址信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在VMware中复制虚拟机并修改网络配置"><span class="nav-number">7.2.</span> <span class="nav-text">2) 在VMware中复制虚拟机并修改网络配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-查看网卡"><span class="nav-number">7.2.1.</span> <span class="nav-text">a) 查看网卡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-生成MAC地址"><span class="nav-number">7.2.2.</span> <span class="nav-text">b)生成MAC地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c-修改相应虚拟机的网卡配置文件"><span class="nav-number">7.2.3.</span> <span class="nav-text">c) 修改相应虚拟机的网卡配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-删除原有的网络规则列表"><span class="nav-number">7.2.4.</span> <span class="nav-text">d) 删除原有的网络规则列表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-启动zookeeper集群"><span class="nav-number">7.3.</span> <span class="nav-text">3) 启动zookeeper集群</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-修改102和103机器中的zookeeper的节点ID"><span class="nav-number">7.3.1.</span> <span class="nav-text">a) 修改102和103机器中的zookeeper的节点ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-分别启动三台虚拟机中的zookeeper"><span class="nav-number">7.3.2.</span> <span class="nav-text">b) 分别启动三台虚拟机中的zookeeper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c-使用zookeeper的客户端控制台，查看zookeeper信息"><span class="nav-number">7.3.3.</span> <span class="nav-text">c) 使用zookeeper的客户端控制台，查看zookeeper信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-修改Solr配置文件-配置集群的中每台Solr服务的IP和端口"><span class="nav-number">7.4.</span> <span class="nav-text">4) 修改Solr配置文件,配置集群的中每台Solr服务的IP和端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-将Solr配置文件上传到Zookeeper"><span class="nav-number">7.5.</span> <span class="nav-text">5) 将Solr配置文件上传到Zookeeper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-启动SolrCloud"><span class="nav-number">7.6.</span> <span class="nav-text">6) 启动SolrCloud</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2018 Welcome to my sweet world All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+
+
+  </div>
+
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/Categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+
+
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/love.js" async=""></script>
+  <!-- 背景动画 -->
+  <script type="text/javascript" src="/js/particle.js" ></script>
+
+</body>
+</html>
